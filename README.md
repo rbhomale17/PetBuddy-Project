@@ -3,19 +3,19 @@
 
 # ***Project Code:-  concerned-picture-9849***
 
-# ***Project Purpose:-  Real-Time-Screen-Application***
+# ***Project Purpose:-  Purpose goes here***
 
 ############################### ***Project Members*** #######################################
 
 ***Team Lead & Student Code***: ***Rushikesh Diliprao Bhomale ( fw25_348 ) https://github.com/rbhomale17***
 
-***Team Member-1 & Student Code*** : ***Darshan Bhandwalkar ( fw22_0556 )***
+***Team Member-1 & Student Code*** : ***Darshan Bhandwalkar ( fw22_0556 ) https://github.com/bhandwalkardarshan***
 
-***Team Member-2 & Student Code*** : ***Sourabh K T ( fw23_0477 )***
+***Team Member-2 & Student Code*** : ***Sourabh K T ( fw23_0477 ) https://github.com/sourabhkt1997***
 
-***Team Member-3 & Student Code*** : ***Sumita Mahato ( fw22_0582 )***
+***Team Member-3 & Student Code*** : ***Sumita Mahato ( fw22_0582 ) https://github.com/Sumitamahato***
 
-***Team Member-4 & Student Code*** : ***Yogita Mane ( fw24_538 )***
+***Team Member-4 & Student Code*** : ***Yogita Mane ( fw24_538 ) https://github.com/Yogita2021***
 
 ***IA Manager: Pankaj kandpal https://github.com/PankajkandpalL***
 
