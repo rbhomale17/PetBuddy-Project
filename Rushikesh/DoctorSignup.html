@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/signup.css">
+  <title>MeetEasy-Sign-up</title>
+  <link rel="icon" href="/logoforHtml.png" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta property="og:title" content="MeetEasy.com">
+  <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta property="og:title" content="HelathBooster.com">
+  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+</head>
+<style>
+  #login {
+    margin-top: 30px;
+  }
+</style>
+
+<!-- <div class="dropdown">
+  <a href="#" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>
+  <div class="dropdown-content">
+    <a href="">My Orders</a>
+    <a href="https://academy.hubspot.com/">Academy</a>
+    <a src onclick="hii()">Log out</a>
+  </div>
+</div> -->
+
+<body>
+  <div class="container">
+    <form>
+      <i class="fa-solid fa-user-plus"></i>
+
+      <!-- <div class="input-group">
+        <label>First Name</label>
+        <input onkeyup="validationFirstName()" type="text" id="username" placeholder="Enter username">
+        <span id="firstname-error"></span>
+      </div> -->
+
+      <div class="input-group">
+        <label>Name</label>
+        <input onkeyup="validationFirstName()" type="text" id="name" placeholder="Enter Your Name">
+        <span id="firstname-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Email Id</label>
+        <input onkeyup="validationEmail()" type="email" id="email" placeholder="Enter Your Email">
+        <span id="email-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Mobile</label>
+        <input onkeyup="validationMobile()" type="tel" placeholder="Enter Your Mobile" id="mobile">
+        <span id="mobile-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input onmouseleave="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
+        <span id="password-error"></span>
+      </div>
+      <button id="Submit">Submit</button>
+      <br>
+      <h3>OR</h3>
+      <br>
+      <div id="border-google">
+        <a id="submit-google" href="http://localhost:3000/auth/google"><img
+            src="https://cdn-teams-slug.flaticon.com/google.jpg" alt="">Continue With
+          Google</a>
+      </div>
+      <span id="submit-error"></span>
+
+      <h4 id="login">Already Have Account: <a href="./login.html">Click here to Log in</a></h4>
+    </form>
+    <div>
+
+    </div>
+  </div>
+</body>
+<script src="./scripts/DoctorSignup.js"></script>
+
+</html>
