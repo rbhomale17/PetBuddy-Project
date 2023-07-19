@@ -4,13 +4,10 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/signup.css">
-  <title>MeetEasy-Sign-up</title>
-  <link rel="icon" href="/logoforHtml.png" type="image/icon type">
+  <title>PetBuddy-Sign-up</title>
+  <link rel="icon" href="/PetBuddy+-2.png" type="image/icon type">
   <meta charset="UTF-8">
-  <meta property="og:title" content="MeetEasy.com">
-  <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
-  <meta charset="UTF-8">
-  <meta property="og:title" content="HelathBooster.com">
+  <meta property="og:title" content="PetBuddy.com">
   <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -19,18 +16,9 @@
 </head>
 <style>
   #login {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 </style>
-
-<!-- <div class="dropdown">
-  <a href="#" id="sign-in"><i class="fa fa-user"></i> Sign In / Register</a>
-  <div class="dropdown-content">
-    <a href="">My Orders</a>
-    <a href="https://academy.hubspot.com/">Academy</a>
-    <a src onclick="hii()">Log out</a>
-  </div>
-</div> -->
 
 <body>
   <div class="container">
@@ -57,13 +45,13 @@
 
       <div class="input-group">
         <label>Mobile</label>
-        <input onmouseleave="validationMobile()" type="tel" placeholder="Enter Your Mobile" id="mobile">
+        <input onkeyup="validationMobile()" type="tel" placeholder="Enter Your Mobile" id="mobile">
         <span id="mobile-error"></span>
       </div>
 
       <div class="input-group">
         <label>Password</label>
-        <input onmouseleave="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
+        <input onkeyup="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
         <span id="password-error"></span>
       </div>
       <button id="Submit">Submit</button>
@@ -77,8 +65,8 @@
       </div>
       <span id="submit-error"></span>
 
+      <h4 id="login">Register As Doctor: <a href="./DoctorSignup.html">Click here to Register</a></h4>
       <h4 id="login">Already Have Account: <a href="./login.html">Click here to Log in</a></h4>
-      <h4 id="login">Register As Doctor: <a href="./DoctorSignup.html">Click here to Log in</a></h4>
     </form>
     <div>
 

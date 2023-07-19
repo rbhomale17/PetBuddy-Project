@@ -26,11 +26,11 @@ userRouter.get("/", async (req, res) => {
 // user registration thing are working here
 userRouter.post("/register", registrationMiddleware, async (req, res) => {
     try {
-        let { gender } = req.body;
-        if (gender == 'Male') req.body.picture = `https://meeteasy-main-server.onrender.com/photos/files/648b63ba14f251ce9c8679c2`;
-        else {
-            req.body.picture = `https://meeteasy-main-server.onrender.com/photos/files/648b63c014f251ce9c8679c3`;
-        }
+        // let { gender } = req.body;
+        // if (gender == 'Male') req.body.picture = `https://meeteasy-main-server.onrender.com/photos/files/648b63ba14f251ce9c8679c2`;
+        // else {
+        //     req.body.picture = `https://meeteasy-main-server.onrender.com/photos/files/648b63c014f251ce9c8679c3`;
+        // }
         const user = new UserModel(req.body);
         await user.save();
         // console.log(user);

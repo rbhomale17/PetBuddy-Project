@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 200px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .custom-alert i {
+            margin-right: 5px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 14px;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>hiiiiiiii</h1>
+    <button type="button" onclick="showAlert()">Show Alert</button>
+
+    <div id="customAlert" class="custom-alert">
+        <i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>
+        <span>This is a custom alert with an icon.</span>
+        <button class="close-btn" onclick="closeAlert()">&times;</button>
+    </div>
+
+</body>
+<script>
+    function showAlert() {
+        const customAlert = document.getElementById('customAlert');
+        customAlert.style.display = 'block';
+    }
+
+    function closeAlert() {
+        const customAlert = document.getElementById('customAlert');
+        customAlert.style.display = 'none';
+    }
+
+</script>
+
+</html>

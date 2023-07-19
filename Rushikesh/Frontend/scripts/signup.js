@@ -1,4 +1,4 @@
-const BaseUrl = "https://meeteasy-main-server.onrender.com";
+const BaseUrl = "http://localhost:3000";
 const registrationUrl = `${BaseUrl}/users/register`
 
 let firstnameError = document.getElementById("firstname-error")
@@ -48,7 +48,7 @@ function validationPassword() {
         passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
         return true;
     } else {
-        alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
+        // alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         passwordError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
         return false;
     }
@@ -65,7 +65,7 @@ function validationMobile() {
             mobileError.innerHTML = '<i class="fas fa-check-circle"></i>';
             return true;
         } else {
-            alert("Mobile No. is Invalid");
+            // alert("Mobile No. is Invalid, It Must Be of 10 Digits.");
             mobileError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
             return false;
         }
@@ -79,6 +79,10 @@ function validationMobile() {
 // let flag = false;
 function validateSubmit() {
     if (!validationPassword() || !validationEmail() || !validationMobile() || !validationFirstName()) {
+        alert(`1. Mobile No. is Invalid, It Must Be of 10 Digits Only.
+                                                        OR
+2. Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.`);
+        // alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         submitError.innerHTML = "Please fill correct Data."
         return false
     } else {
@@ -108,24 +112,27 @@ function RegisterUser() {
         "name": username.value,
         "password": password.value,
         "mobile": mobile.value,
-        "email": email.value
+        "picture": `https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292`,
+        "email": email.value,
+        "role": 'Customer'
     };
     console.log(newUserObject)
-    // fetch(`${registrationUrl}`, {
-    //     method: "POST",
-    //     headers: {
-    //         "content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(newUserObject)
-    // }).then((res) => res.json()).then((data) => {
-    //     alert(`${data.msg}`);
-    //     if (data.err == false) return;
-    //     alert("Redirecting to Dashboard Page");
-    //     let userData = data.user;
-    //     console.log(data.user);
-    //     localStorage.setItem('userDetails', JSON.stringify(userData))
-    //     redirectToLogin();
-    // })
+    fetch(`${registrationUrl}`, {
+        method: "POST",
+        headers: {
+            "content-Type": "application/json",
+        },
+        body: JSON.stringify(newUserObject)
+    }).then((res) => res.json()).then((data) => {
+        alert(`${data.msg}`);
+        console.log(data.user)
+        // if (data.err == false) return;
+        // alert("Redirecting to Dashboard Page");
+        // let userData = data.user;
+        // console.log(data.user);
+        // localStorage.setItem('userDetails', JSON.stringify(userData))
+        // redirectToLogin();
+    })
 }
 
 // // redirecting to dashboard
@@ -133,4 +140,3 @@ function RegisterUser() {
 // function redirectToLogin() {
 //     location.href = "./landing.html";
 // };
-

@@ -65,7 +65,7 @@ function validationMobile() {
             mobileError.innerHTML = '<i class="fas fa-check-circle"></i>';
             return true;
         } else {
-            alert("Mobile No. is Invalid, It Must Be of 10 Digits.");
+            alert("Mobile No. is Invalid");
             mobileError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
             return false;
         }
@@ -108,8 +108,7 @@ function RegisterUser() {
         "name": username.value,
         "password": password.value,
         "mobile": mobile.value,
-        "email": email.value,
-        "role": 'customer'
+        "email": email.value
     };
     console.log(newUserObject)
     // fetch(`${registrationUrl}`, {
@@ -135,3 +134,6 @@ function RegisterUser() {
 //     location.href = "./landing.html";
 // };
 
+
+// Doctor = "Veterinary Nutrition", "Veterinary Pathology", 'Veterinary Sports Animals', "Veterinary Behaviorists", "Veterinary Dentistry",
+//     "Veterinary Dermatology"
