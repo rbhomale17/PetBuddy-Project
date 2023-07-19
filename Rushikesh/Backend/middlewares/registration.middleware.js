@@ -6,17 +6,17 @@ const saltRounds = Number(process.env.saltRounds);
 
 
 const registrationMiddleware = async (req, res, next) => {
-    const { email, password, gender, name } = req.body;
+    const { email, password, name } = req.body;
     try {
         const emailUser = await UserModel.find({ email });
         // console.log(emailUser,mobileuser);
-        if (emailUser.length !== 0) res.send({ msg: "This Email is already registered. Try Log in",err:false })
+        if (emailUser.length !== 0) res.send({ msg: "This Email is already registered. Try Log in", err: false })
         else {
             bcrypt.hash(password, saltRounds, (err, hash) => {
                 // hash is hashed password.
                 if (err) {
                     console.log(err);
-                    res.send({ err: err.message,err:false });
+                    res.send({ err: err.message, err: false });
                     return;
                 }
                 req.body.password = hash;

@@ -8,7 +8,7 @@ require("dotenv").config();
 const { v4: uuidv4 } = require('uuid');
 
 //google outh
-authRoute.get("/auth/google", passport.authenticate("google", { scope: ["email", "profile"] })
+authRoute.get("/auth/google", passport.authenticate("google", { scope: ["email", "profile", "phone"] })
 );
 authRoute.get("/auth/google/callback", passport.authenticate('google', {
   // successRedirect: '/auth/google/success', failureRedirect: '/google/failure',
@@ -41,6 +41,8 @@ passport.use(
     async function (request, accessToken, refreshToken, profile, done) {
       try {
         let email = profile._json.email;
+        let mobile = profile._json.phone;
+        let role = 'Customer';
         var user = await UserModel.findOne({ email })
         // console.log(user)
         if (user) {
@@ -48,7 +50,7 @@ passport.use(
         } else {
           let name = profile._json.name;
           let picture = profile._json.picture.replace(96, 340);
-          const user = new UserModel({ email, name, picture, password: uuidv4() });
+          const user = new UserModel({ email, name, picture, mobile, role, password: uuidv4() });
           await user.save();
           return done(null, user);
         }

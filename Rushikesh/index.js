@@ -6,6 +6,7 @@ const { userRouter } = require('./Backend/routes/users.route');
 const { authRoute } = require('./Backend/routes/auth.routes');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const MailRouter = require('./Backend/routes/mail.router');
 
 require('dotenv').config();
 const app = express();
@@ -23,8 +24,9 @@ app.get('/', (req, res) => {
 })
 
 app.use("/", authRoute);
-app.use('/photos', photoRouter)
+// app.use('/photos', photoRouter)
 app.use('/users', userRouter)
+app.use('/mail', MailRouter)
 
 
 app.listen(3000, async () => {
