@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./styles/signup.css">
   <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-  <title>MeetEasy-Log-in</title>
-  <link rel="icon" href="/logoforHtml.png" type="image/icon type">
+  <title>PetBuddy-Login</title>
+  <link rel="icon" href="/PetBuddy+-2.png" type="image/icon type">
   <meta charset="UTF-8">
-  <meta property="og:title" content="MeetEasy.com">
-  <link rel="icon" href="./titleLogo.jpg" type="image/icon type">
-  <meta charset="UTF-8">
-  <meta property="og:title" content="HelathBooster.com">
+  <meta property="og:title" content="PetBuddy.com">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -32,15 +29,18 @@
 
       <div class="input-group">
         <label>Password</label>
-        <input onmouseleave="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
+        <input onkeyup="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
         <span id="password-error"></span>
       </div>
 
       <button id="Submit">Submit</button>
       <span id="submit-error"></span>
+      <br>
+      <h4 id="login">Forgot Password: <a href="./forgotPassword.html">Click here to Reset</a></h4>
+      <br>
       <h4 id="login">Don't Have Account: <a href="./signup.html">Click here for Sign up</a></h4>
       <br>
-      <h3>OR</h3>
+      <h3>OR</h3> 
       <br>
       <div id="border-google">
         <a id="submit-google" href="http://localhost:3000/auth/google"><img

@@ -19,7 +19,7 @@ function validationFirstName() {
     } else {
         firstnameError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
         return false;
-    }
+    } 
 }
 
 //validation for email id from input

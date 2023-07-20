@@ -1,4 +1,4 @@
-const BaseUrl = "https://meeteasy-main-server.onrender.com";
+const BaseUrl = "http://localhost:3000";
 const loginUrl = `${BaseUrl}/users/login`
 
 let emailError = document.getElementById("email-error")
@@ -31,7 +31,6 @@ function validationPassword() {
         passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
         return true;
     } else {
-        alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         passwordError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
         return false;
     }
@@ -41,7 +40,9 @@ function validationPassword() {
 
 function validateSubmit() {
     if (!validationPassword() || !validationEmail()) {
-        submitError.innerHTML = "Please fill the data to submit."
+        alert(`1. Invalid email format. Please enter a valid email address in the format 'username@example.com'.
+                                                         OR
+2. Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.`); submitError.innerHTML = "Please fill the data to submit."
         return false
     } else {
         loginUser();
@@ -78,11 +79,11 @@ function loginUser() {
         .then((data) => {
             alert(`${data.msg}`);
             console.log(data.user);
-            localStorage.setItem('userDetails', JSON.stringify(data.user));
+            // localStorage.setItem('userDetails', JSON.stringify(data.user));
 
-            if (data.user.role == "User") alert("Redirecting to Home Page"), redirectToHome();
-            else if (data.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
-            else alert("Redirecting to Sign up Page")//, location.href = "./signup.html"
+            // if (data.user.role == "User") alert("Redirecting to Home Page"), redirectToHome();
+            // else if (data.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
+            // else alert("Redirecting to Sign up Page")//, location.href = "./signup.html"
         })
 }
 
