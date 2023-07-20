@@ -77,6 +77,12 @@ function validationMobile() {
 // validation for form all inputs are working or data provided working fine or not
 
 // let flag = false;
+// catching all input values after validation
+var username = document.getElementById("name");
+var mobile = document.getElementById("mobile");
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+
 function validateSubmit() {
     if (!validationPassword() || !validationEmail() || !validationMobile() || !validationFirstName()) {
         alert(`1. Mobile No. is Invalid, It Must Be of 10 Digits Only.
@@ -87,7 +93,16 @@ function validateSubmit() {
         return false
     } else {
         // flag = true;
-        RegisterUser();
+        let newUserObject = {
+            "name": username.value,
+            "password": password.value,
+            "mobile": mobile.value,
+            "picture": `https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292`,
+            "email": email.value,
+            "role": 'Customer'
+        };
+        registerUser(newUserObject)
+        // RegisterUser();
         return true;
     }
 }
@@ -99,40 +114,36 @@ Submitbutton.addEventListener("click", function (e) {
     validateSubmit();
 })
 
-// catching all input values after validation
-var username = document.getElementById("name");
-var mobile = document.getElementById("mobile");
-var email = document.getElementById("email");
-var password = document.getElementById("password");
 
-// posting new Admin user data to server
 
-function RegisterUser() {
-    let newUserObject = {
-        "name": username.value,
-        "password": password.value,
-        "mobile": mobile.value,
-        "picture": `https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292`,
-        "email": email.value,
-        "role": 'Customer'
-    };
-    console.log(newUserObject)
-    fetch(`${registrationUrl}`, {
-        method: "POST",
-        headers: {
-            "content-Type": "application/json",
-        },
-        body: JSON.stringify(newUserObject)
-    }).then((res) => res.json()).then((data) => {
-        alert(`${data.msg}`);
-        console.log(data.user)
-        // if (data.err == false) return;
-        // alert("Redirecting to Dashboard Page");
-        // let userData = data.user;
-        // console.log(data.user);
-        // localStorage.setItem('userDetails', JSON.stringify(userData))
-        // redirectToLogin();
-    })
+// posting new user data to server
+async function registerUser(newUserObject) {
+    try {
+        const registrationResponse = await fetch(`${registrationUrl}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUserObject),
+        });
+
+        const registrationData = await registrationResponse.json();
+        alert(`${registrationData.msg}`);
+        console.log(registrationData.user);
+
+        const welcomeResponse = await fetch(`${BaseUrl}/mail/welcome-user`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: registrationData.user.email }),
+        });
+
+        const welcomeData = await welcomeResponse.json();
+        alert(welcomeData.msg);
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
 }
 
 // // redirecting to dashboard

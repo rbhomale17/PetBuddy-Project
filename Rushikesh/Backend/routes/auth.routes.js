@@ -6,6 +6,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 require("dotenv").config();
 
 const { v4: uuidv4 } = require('uuid');
+const { sendWelcomeFromGoogleOauthEmail } = require("./mail.router");
 
 //google outh
 authRoute.get("/auth/google", passport.authenticate("google", { scope: ["email", "profile", "phone"] })
@@ -13,13 +14,13 @@ authRoute.get("/auth/google", passport.authenticate("google", { scope: ["email",
 authRoute.get("/auth/google/callback", passport.authenticate('google', {
   // successRedirect: '/auth/google/success', failureRedirect: '/google/failure',
   session: false
-}), (req, res) => {
+}), async (req, res) => {
   let user = req.user;
   if (user) {
     user.password = undefined;
     // `https://meeteasy.netlify.app/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`
 
-    res.redirect(`http://127.0.0.1:5500/Rushikesh/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
+    res.redirect(`http://127.0.0.1:5500/Rushikesh/Frontend/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
 
   } else {
     res.send('failed to connect')
@@ -41,7 +42,7 @@ passport.use(
     async function (request, accessToken, refreshToken, profile, done) {
       try {
         let email = profile._json.email;
-        let mobile = profile._json.phone;
+        // let mobile = profile._json.phone;
         let role = 'Customer';
         var user = await UserModel.findOne({ email })
         // console.log(user)
@@ -50,8 +51,9 @@ passport.use(
         } else {
           let name = profile._json.name;
           let picture = profile._json.picture.replace(96, 340);
-          const user = new UserModel({ email, name, picture, mobile, role, password: uuidv4() });
+          const user = new UserModel({ email, name, picture, role, password: uuidv4() });
           await user.save();
+          sendWelcomeFromGoogleOauthEmail(email, user)
           return done(null, user);
         }
       } catch (error) {

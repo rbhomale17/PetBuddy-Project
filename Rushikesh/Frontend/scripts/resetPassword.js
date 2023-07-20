@@ -25,7 +25,7 @@ passwordCheckbox.addEventListener('change', function () {
     }
 });
 
-
+// validation for new password from input
 function validationPassword() {
     let passwordError = document.getElementById('password-error-1')
     let password = document.getElementById("newPassword").value;
@@ -42,6 +42,7 @@ function validationPassword() {
     }
 }
 
+// validation for confirm password from input
 function validationConfirmPassword() {
     let passwordError = document.getElementById('password-error')
     let password = document.getElementById("confirmPassword").value;
@@ -56,6 +57,26 @@ function validationConfirmPassword() {
     }
 }
 
+// validation for mobile from input
+function validationMobile() {
+    let mobileError = document.getElementById("mobile-error")
+    let mobile = document.getElementById("mobile").value;
+    if (mobile != "") {
+        const mobileNumberRegex = /^[0-9]{10}$/.test(mobile)
+        if (mobileNumberRegex) {
+            console.log("Mobile is Valid.");
+            mobileError.innerHTML = '<i class="fas fa-check-circle"></i>';
+            return true;
+        } else {
+            // alert("Mobile No. is Invalid, It Must Be of 10 Digits.");
+            mobileError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
+            return false;
+        }
+    } else {
+        mobileError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
+        return false;
+    }
+}
 var Submitbutton = document.getElementById("Submit");
 Submitbutton.addEventListener("click", function (e) {
     e.preventDefault();
@@ -63,8 +84,10 @@ Submitbutton.addEventListener("click", function (e) {
 })
 function validateSubmit() {
     let submitError = document.getElementById("submit-error")
-    if (!validationPassword() || !validationConfirmPassword()) {
-        alert(`Password Not Matched!`);
+    if (!validationPassword() || !validationConfirmPassword() || !validationMobile()) {
+        alert(`Password Not Matched!
+                    OR
+Mobile No. should be of 10 Digits.`);
         submitError.innerHTML = "Please fill correct Data."
         return false
     } else {
@@ -75,11 +98,13 @@ function validateSubmit() {
 
 function UpdatePassword() {
     let password = document.getElementById("confirmPassword").value;
+    let mobile = document.getElementById("mobile").value;
     detailsObject.password = password;
+    detailsObject.mobile = mobile;
     console.log(detailsObject);
     // make a requiest to server here 
     // ! send the detailsObject in Body
-    fetch(`http://localhost:3000/mail/reset-password`, {
+    fetch(`http://localhost:3000/mail/reset-password-Oauth`, {
         method: "POST",
         headers: {
             "content-type": "application/json"
