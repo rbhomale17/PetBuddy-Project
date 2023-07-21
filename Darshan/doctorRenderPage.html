@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Appointment</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
+    <link rel="stylesheet" href="./doctorRenderPage.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    />
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <a href="./index.html" class="logo"
+          ><img src="./images/logo.jpg" alt=""
+        /></a>
+  
+        <div class="bx bx-menu" id="menu-icon"></div>
+  
+        <ul class="navbar" id="nav-menu">
+          <li><a class="nav-link home" href="#">Shop</a></li>
+          <li>
+            <a class="nav-link about" id="videoCall" href="#">About Us</a>
+          </li>
+          <li>
+            <a class="nav-link skills" id="ScreenShare" href="#">Medicines</a>
+          </li>
+          <li>
+            <a class="nav-link projects" id="Message" href="#">Consult</a>
+          </li>
+          <div class="dropdown">
+            <a href="../Rushikesh/Frontend/signup.html" id="sign-in"
+              ><i class="fa fa-user"></i>
+              <span id="username">sign-up/Log-in</span></a
+            >
+            <!-- <div class="dropdown-content">
+              <a id="log" onclick="logout()">Log out</a>
+            </div> -->
+          </div>
+        </ul>
+      </header>
+
+    <!-- card rendering section -->
+    <div class="cards">
+        <div>
+            <img src="https://www.vetlive.in/wp-content/uploads/2022/02/online-vet-3.png" alt="">
+            <h4>India's No. 1 Online Vet Consultation Service</h4>
+            <p>Ask Top Vet's Advice</p>
+        </div>
+        <div>
+            <img src="https://www.vetlive.in/wp-content/uploads/2022/02/veterinarian-health-pets-vet-vetenarian.png" alt="">
+            <h4>Trusted & Affordable Vetcare</h4>
+            <p>Consult Vet @ 199</p>
+        </div>
+        <div>
+            <img src="https://www.vetlive.in/wp-content/uploads/2022/02/vet-appointment.png" alt="">
+            <h4>Easy Appointment Booking</h4>
+            <p>Book at a few clicks</p>
+        </div>
+        <div>
+            <img src="https://www.vetlive.in/wp-content/uploads/2022/02/vet-appointment-schedule.png" alt="">
+            <h4>Consult Vet in 15 minutes</h4>
+            <p>Fastest Vet service in India</p>
+        </div>
+    </div>
+    <!-- filtering options -->
+    <div class="options">
+        <input type="text" name="inputName" id="searchId"  placeholder=" Search here" />
+        <button id="searchBtn">Search</button>
+        <select name="specialization" id="specialization">
+            <option value="">Select Specialization</option>
+            <option value="Veterinary Nutrition">Veterinary Nutrition</option>
+            <option value="Veterinary Pathology">Veterinary Pathology</option>
+            <option value="Veterinary Sports Animals">Veterinary Sports Animals</option>
+            <option value="Veterinary Behaviorists">Veterinary Behaviorists</option>
+            <option value="Veterinary Dentistry">Veterinary Dentistry</option>
+        </select>
+        <select name="language" id="language">
+            <option value="">Select Language</option>
+            <option value="hindi">Hindi</option>
+            <option value="english">English</option>
+            <option value="bengali">Bengali</option>
+            <option value="malayalam">Malayalam</option>
+            <option value="marathi">Marathi</option>
+            <option value="gujrati">Gujrati</option>
+        </select>
+    </div>
+
+    <!-- rendering doctors information -->
+    <div id="data-container">
+
+    </div>
+
+    <!-- footer -->
+    <div id="f-main">
+        <footer>
+          <div class="f-cont">
+            <div class="f-row">
+              <div class="col" id="about">
+                <h3>About Us</h3>
+                <p>
+                  Introducing our PetBuddy consultation platform from where you
+                  can book appointment of pet doctor for your pet.
+                </p>
+                <div class="s-media">
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-instagram"></i></a>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                  <a
+                    onclick="window.open('https://github.com/rbhomale17/deluxe-change-1738')"
+                    ><i class="fa fa-github"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="col" id="company">
+                <h3>OUR COMPANY</h3>
+                <div class="link">
+                  <a href="#">About Us</a>
+                  <a href="#">Contact Us</a>
+                </div>
+              </div>
+              <div class="col" id="category">
+                <h3>TOP CATEGORIES</h3>
+                <div class="link">
+                  <a href="#">Consulting</a>
+                  <a href="#">Virtual Consulting</a>
+                  <a href="#">Book Appointment</a>
+                </div>
+              </div>
+              <div class="col" id="policy">
+                <h3>POLICIES & INFO</h3>
+                <div class="link">
+                  <a href="#">Privacy Policy</a>
+                  <a href="#">SUPPORT</a>
+                  <a href="#">For Help, email to care@petBuddy.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+</body>
+</html>
+<script src="./doctorRenderPage.js"></script>
+
+
+<!-- "msg": "successfully fetched",
+    "data": {
+        "_id": "64b9957c78e40805ed506543",
+        "name": "sourabh",
+        "email": "s@gmail.com",
+        "pass": "sourabh",
+        "role": "doctor",
+        "language": [
+            "english",
+            "malayalam"
+        ],
+        "appointments": [
+            "64b9b520e97530d452d89518",
+            "64b9b582eb7668bbf74abe8e",
+            "64b9b67f4e17e5a18a99a761",
+            "64b9b702039ff8130ace3b49",
+            "64b9b806b37a5c59ed004d81"
+        ],
+        "appointments_slot": [
+            {
+                "time": "11.00",
+                "date": "21/07/2023",
+                "status": false,
+                "_id": "64b99b21ca20ba44519200df"
+            }
+        ]
+    } -->
