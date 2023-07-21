@@ -432,15 +432,15 @@ main {
 
   margin-top: 90px;
 }
-#main {
+/* #main {
   display: grid;
   grid-template-areas: "g h h h h";
-  /* grid-template-columns: repeat(200px, 2000px); */
+
   justify-content: space-around;
-  /* text-align: center; */
+
 
   margin: auto;
-}
+} */
 
 #cards {
   grid-area: "h";

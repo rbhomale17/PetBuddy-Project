@@ -60,11 +60,13 @@ const userData = JSON.parse(decodeURIComponent(urlParams.get('userdata')));
 // console.log(userData); // Output the user data to the console or perform any other operations
 
 // /////////////////////////////////////
-// window.addEventListener('load', () => {
-//   if (userData) {
-//     localStorage.setItem('userDetails', JSON.stringify(userData))
-//   }
-// })
+window.addEventListener('load', () => {
+setTimeout(()=>{
+    if (userData) {
+    localStorage.setItem('userDetails', JSON.stringify(userData))
+  }
+},1000)
+})
 // if (userData) {
 //   localStorage.setItem('userDetails', JSON.stringify(userData))
 // }
@@ -103,7 +105,7 @@ const firstFeaturesContentElement = featuresContentElements[0];
 
 // Create the new child element
 const newChildElement = document.createElement("a");
-newChildElement.href = "#";
+newChildElement.href = "../Darshan/createAppointmentpage.html";
 
 newChildElement.innerHTML = `
   <div class="skills-card">
