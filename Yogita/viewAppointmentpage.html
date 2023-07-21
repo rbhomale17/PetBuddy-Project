@@ -2,16 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PetBuddy+/UserDashboard</title>
-
-    <meta charset="UTF-8" />
-    <meta property="og:title" content="PetBuddy.com" />
+    <title>PetBuddy+/viewAppointmentPage</title>
     <link rel="stylesheet" href="./userDashbord.css" />
     <!-- favicon icon -->
     <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
     <!--  -->
+
+    <link rel="stylesheet" href="./viewAppointmentpage.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
@@ -25,7 +23,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
     />
   </head>
-
   <body>
     <!-- Navbar  Section Start -->
 
@@ -60,84 +57,14 @@
     </header>
 
     <!-- Navbar Section End -->
-
-    <!-- Main Section Start -->
-
-    <section id="home">
-      <div class="home-text">
-        <span>Hello👋,</span>
-        <h1 id="user-detail-name">Yogita Mane</h1>
-        <h2>Welcome To PetBuddy+</h2>
-        <br />
-        <a onclick="logout()"
-          ><button class="resume-button" id="resume-button-2">Log out</button>
-        </a>
-      </div>
-      <div class="home-img1">
-        <div id="imageDiv">
-          <img
-            src="https://meeteasy-main-server.onrender.com/photos/files/648b04ab43adde36fe392b22"
-            alt="yogita"
-          />
+    <!-- main -->
+    <main>
+      <div id="main">
+        <div id="cards">
+          <!--Append card using js js -->
         </div>
-        <!-- upload new image here -->
-        <input
-          id="fileInput"
-          class="resume-button"
-          type="file"
-          name="file"
-          accept=".png, .jpg, .jpeg, .gif"
-          required
-        />
-        <br />
-        <input id="uploadButton" class="resume-button" type="submit" />
       </div>
-    </section>
-
-    <!-- Main Section End -->
-
-    <!-- Features Section Start -->
-
-    <section id="features">
-      <div class="heading">
-        <h2>Features</h2>
-        <span>Explore PetBuddy+ Features</span>
-      </div>
-      <div class="features-content">
-        <a href="">
-          <div class="skills-card">
-            <img
-              class="features-card-img"
-              src="./images/message.gif"
-              alt="html"
-            />
-            <h4 class="features-card-name">Book Appointment</h4>
-          </div>
-        </a>
-        <a href="">
-          <div class="skills-card">
-            <img
-              class="features-card-img"
-              src="./viewAppointmentpage.html"
-              alt="html"
-            />
-            <h4 class="features-card-name">View Appointments</h4>
-          </div>
-        </a>
-        <!-- <a href="#" >
-          <div class="skills-card">
-            <img
-              class="features-card-img"
-              src="./images/scrrenShare.png"
-              alt="html"
-            />
-            <h4 class="features-card-name">Create Appointments</h4>
-          </div>
-        </a> -->
-      </div>
-    </section>
-
-    <!-- Features Section End -->
+    </main>
 
     <!-- FOOTER -->
 
@@ -190,8 +117,6 @@
     </div>
 
     <!-- FOOTER -->
-
-    <!-- Javascript -->
-    <script src="./userDashbord.js"></script>
   </body>
 </html>
+<script src="./viewAppointmentpage.js"></script>
