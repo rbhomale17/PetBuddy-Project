@@ -5,6 +5,7 @@ const { UserModel } = require("../models/user.model");
 const { registrationMiddleware } = require("../middlewares/registration.middleware");
 const { loginMiddleware } = require("../middlewares/login.middleware");
 const { use } = require("passport");
+const { appointmentModel } = require("../models/appointmentModel");
 
 require('dotenv').config();
 const userRouter = express.Router();
@@ -90,9 +91,11 @@ userRouter.post("/login", loginMiddleware, async (req, res) => {
 //     }
 // });
 
-userRouter.post("/bookAppointment",async(req,res)=>{
-        let {pet_type}=req.body
+userRouter.put("/bookAppointment",async(req,res)=>{
+        let {pet_type,pet_gender,user_id,meeting_time}=req.body
     try {
+        
+        
         
     } catch (error) {
         res.status(400).send({
