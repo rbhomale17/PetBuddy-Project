@@ -90,5 +90,17 @@ userRouter.post("/login", loginMiddleware, async (req, res) => {
 //     }
 // });
 
+userRouter.post("/bookAppointment",async(req,res)=>{
+        let {pet_type}=req.body
+    try {
+        
+    } catch (error) {
+        res.status(400).send({
+            "msg":error.message
+        })
+    }
+})
+
+
 
 module.exports = { userRouter }

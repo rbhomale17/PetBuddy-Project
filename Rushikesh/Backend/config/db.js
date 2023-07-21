@@ -1,12 +1,6 @@
-const mongoose = require("mongoose");
-require('dotenv').config();
+let mongoose=require("mongoose")
+require("dotenv").config()
 
-const connection = mongoose.connect(process.env.mongo_url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    retryWrites: 'true',
-});
+let connection=mongoose.connect("mongodb+srv://sourabhdhanarajan:sourabhdhanarajan@cluster0.1rj0rxh.mongodb.net/petbuddyproject?retryWrites=true&w=majority")
 
-module.exports = {
-    connection
-}
+module.exports={connection}

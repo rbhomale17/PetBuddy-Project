@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
     language: { type: String },
     appointments: [{ type: mongoose.Schema.Types.ObjectId, ref: "appointment" }],
     specialization: {
-        type: String,
+        type: String, 
         enum: [
             "Veterinary Nutrition",
             "Veterinary Pathology",
