@@ -6,7 +6,7 @@ const { userRouter } = require('./Backend/routes/users.route');
 const { authRoute } = require('./Backend/routes/auth.routes');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const {MailRouter} = require('./Backend/routes/mail.router');
+const {MailRouter} = require('./Backend/routes/mail.router'); 
 
 require('dotenv').config();
 const app = express();
