@@ -68,11 +68,12 @@ async function sendPasswordResetEmail(email, token, user) {
 async function sendWelcomeEmail(email, user) {
     const appUrl = `http://127.0.0.1:5500/Rushikesh/Frontend/signup.html`;
 
-    const welcomeMail = {
-        from: process.env.NodemailerServiceMail,
-        to: email,
-        subject: 'Welcome to PetBuddy+ - Your Pet Care Companion 🐾',
-        html: `
+    if (user.role !== "Doctor" && user.role !== "Admin") {
+        const welcomeMail = {
+            from: process.env.NodemailerServiceMail,
+            to: email,
+            subject: 'Welcome to PetBuddy+ - Your Pet Care Companion 🐾',
+            html: `
         <html>
 
         <head>
@@ -109,16 +110,124 @@ async function sendWelcomeEmail(email, user) {
     
         </html>
         `
-    };
+        };
 
-    // sending mail via nodemailer
-    transporter.sendMail(welcomeMail, (error, info) => {
-        if (error) {
-            console.log('Error sending email:', error);
-        } else {
-            console.log('Password reset email sent:', info.response);
-        }
-    });
+        // sending mail via nodemailer
+        transporter.sendMail(welcomeMail, (error, info) => {
+            if (error) {
+                console.log('Error sending email:', error);
+            } else {
+                console.log('Password reset email sent:', info.response);
+            }
+        });
+
+    } else if (user.role !== "Customer" && user.role !== "Admin") {
+
+        const welcomeMail = {
+            from: process.env.NodemailerServiceMail,
+            to: email,
+            subject: 'Welcome to PetBuddy+ - Your Pet Care Companion 🐾',
+            html: `
+            <html>
+    
+            <head>
+                <title>Welcome to PetBuddy+</title>
+            </head>
+        
+            <body>
+                <div style="background-color: #cdfad69d; padding: 20px;">
+                    <h1 style="color: #ff8c00;">Welcome to PetBuddy+</h1>
+                    <p>Dear Dr. ${user.name},</p>
+                    <!-- <br> -->
+                    <p>Welcome to PetBuddy+! We are excited to have you as a part of our team of veterinarian's.</p>
+                    <p>At PetBuddy+, we strive to provide the best care for our customers pets. Our dedicated team of veterinarians and
+                        pet care specialists are welcomes you and here to assist you with any pet-related concerns.</p>
+                    <!-- <br> -->
+                    <p>Click to explore our application: <a href="${appUrl}">Click Here</a>.</p>
+                    <p>Feel free to explore our app and discover various features such as: </p>
+                    <ul>
+                        <li>Booking appointments with our veterinarians</li>
+                        <li>Creating appointments for our customers</li>
+                        <li>Tracking pet's health records</li>
+                        <li>Connecting with other pet owners</li>
+                    </ul>
+                    <!-- <br> -->
+                    <p>If you have any questions or need assistance, don't hesitate to reach out to our support team.</p>
+                    <p>Thank you for choosing PetBuddy+.</p>
+                    <!-- <br> -->
+                    <p>Best regards,</p>
+                    <p>The PetBuddy+ Admin Team</p>
+                    <hr style="border: 1px solid #ccc;">
+                    <p style="color: #999;">If you did not sign up for PetBuddy+, please ignore this email.</p>
+                </div>
+            </body>
+        
+            </html>
+            `
+        };
+
+        // sending mail via nodemailer
+        transporter.sendMail(welcomeMail, (error, info) => {
+            if (error) {
+                console.log('Error sending email:', error);
+            } else {
+                console.log('Password reset email sent:', info.response);
+            }
+        });
+    } else if (user.role !== "Customer" && user.role !== "Doctor") {
+
+        const welcomeMail = {
+            from: process.env.NodemailerServiceMail,
+            to: email,
+            subject: 'Welcome to PetBuddy+ - Your Pet Care Companion 🐾',
+            html: `
+            <html>
+    
+            <head>
+                <title>Welcome to PetBuddy+</title>
+            </head>
+        
+            <body>
+                <div style="background-color: #cdfad69d; padding: 20px;">
+                    <h1 style="color: #ff8c00;">Welcome to PetBuddy+</h1>
+                    <p>Dear Dr. ${user.name},</p>
+                    <!-- <br> -->
+                    <p>Welcome to PetBuddy+! We are excited to have you as a part of our team of Admins.</p>
+                    <p>At PetBuddy+, we strive to provide the best care for our customers pets. Our dedicated team of veterinarians, Admins and
+                        pet care specialists are welcomes you and here to assist you.</p>
+                    <!-- <br> -->
+                    <p>Click to explore our application: <a href="${appUrl}">Click Here</a>.</p>
+                    <p>Feel free to explore our app and discover various features such as: </p>
+                    <ul>
+                        <li>Booking appointments with our veterinarians</li>
+                        <li>Creating appointments for our customers</li>
+                        <li>Tracking pet's health records</li>
+                        <li>Connecting with other pet owners</li>
+                    </ul>
+                    <!-- <br> -->
+                    <p>If you have any questions or need assistance, don't hesitate to reach out to our support team.</p>
+                    <p>Thank you for choosing PetBuddy+.</p>
+                    <!-- <br> -->
+                    <p>Best regards,</p>
+                    <p>The PetBuddy+ Admin Team</p>
+                    <hr style="border: 1px solid #ccc;">
+                    <p style="color: #999;">If you did not sign up for PetBuddy+, please ignore this email.</p>
+                </div>
+            </body>
+        
+            </html>
+            `
+        };
+
+        // sending mail via nodemailer
+        transporter.sendMail(welcomeMail, (error, info) => {
+            if (error) {
+                console.log('Error sending email:', error);
+            } else {
+                console.log('Password reset email sent:', info.response);
+            }
+        });
+    }
 }
 
 // send the welcome email to user on Google Oauth registration
@@ -268,7 +377,7 @@ MailRouter.post('/welcome-user', async (req, res) => {
         return;
     }
     sendWelcomeEmail(email, user);
-    res.send({ msg: 'Email for password reset is sent on your register email.' });
+    res.send({ msg: 'Welcome Email is sent on your register email.' });
 
 })
 

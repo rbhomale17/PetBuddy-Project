@@ -1,7 +1,9 @@
-const BaseUrl = "https://meeteasy-main-server.onrender.com";
-const registrationUrl = `${BaseUrl}/users/register`
+const BaseUrl = "http://localhost:3000";
+const registrationUrl = `${BaseUrl}/users/register`;
+
 
 let firstnameError = document.getElementById("firstname-error")
+let addressError = document.getElementById("address-error")
 let mobileError = document.getElementById("mobile-error")
 let emailError = document.getElementById("email-error")
 let passwordError = document.getElementById("password-error")
@@ -19,7 +21,7 @@ function validationFirstName() {
     } else {
         firstnameError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
         return false;
-    } 
+    }
 }
 
 //validation for email id from input
@@ -37,6 +39,21 @@ function validationEmail() {
     }
 }
 
+// validation for address from input
+
+function validationAddress() {
+    let name = document.getElementById("address").value;
+    const nameInput = name.length >= 4 ? true : false
+    // console.log(nameInput)
+    if (nameInput) {
+        addressError.innerHTML = '<i class="fas fa-check-circle"></i>';
+        return true;
+    } else {
+        addressError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
+        return false;
+    }
+}
+
 // validation for password from input
 
 function validationPassword() {
@@ -48,7 +65,7 @@ function validationPassword() {
         passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
         return true;
     } else {
-        alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
+        // alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         passwordError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
         return false;
     }
@@ -65,7 +82,7 @@ function validationMobile() {
             mobileError.innerHTML = '<i class="fas fa-check-circle"></i>';
             return true;
         } else {
-            alert("Mobile No. is Invalid");
+            // alert("Mobile No. is Invalid, It Must Be of 10 Digits.");
             mobileError.innerHTML = `<i class="fa-sharp fa-solid fa-circle-xmark" style="color: #e4503f;"></i>`;
             return false;
         }
@@ -77,13 +94,38 @@ function validationMobile() {
 // validation for form all inputs are working or data provided working fine or not
 
 // let flag = false;
+// catching all input values after validation
+var username = document.getElementById("name");
+var mobile = document.getElementById("mobile");
+var email = document.getElementById("email");
+var password = document.getElementById("password");
+// let address = document.getElementById("address").value;
+
 function validateSubmit() {
-    if (!validationPassword() || !validationEmail() || !validationMobile() || !validationFirstName()) {
+    if (!validationPassword() || !validationEmail() || !validationMobile() || !validationFirstName() || !validationAddress()) {
+        alert(`1. Mobile No. is Invalid, It Must Be of 10 Digits Only.
+2. Address is Invalid, Minimun 4 character required.
+                                                        OR
+3. Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.`);
+        // alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         submitError.innerHTML = "Please fill correct Data."
         return false
     } else {
         // flag = true;
-        RegisterUser();
+        let newUserObject = {
+            "name": username.value,
+            "password": password.value,
+            "mobile": mobile.value,
+            "picture": `https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292`,
+            "email": email.value,
+            "role": 'Doctor',
+            "address": document.getElementById("address").value,
+            "specialization": document.getElementById('specialization').value,
+            "language": document.getElementById("language").value
+        };
+        // console.log(newUserObject)
+        registerUser(newUserObject)
+        // RegisterUser();
         return true;
     }
 }
@@ -95,37 +137,36 @@ Submitbutton.addEventListener("click", function (e) {
     validateSubmit();
 })
 
-// catching all input values after validation
-var username = document.getElementById("name");
-var mobile = document.getElementById("mobile");
-var email = document.getElementById("email");
-var password = document.getElementById("password");
 
-// posting new Admin user data to server
 
-function RegisterUser() {
-    let newUserObject = {
-        "name": username.value,
-        "password": password.value,
-        "mobile": mobile.value,
-        "email": email.value
-    };
-    console.log(newUserObject)
-    // fetch(`${registrationUrl}`, {
-    //     method: "POST",
-    //     headers: {
-    //         "content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(newUserObject)
-    // }).then((res) => res.json()).then((data) => {
-    //     alert(`${data.msg}`);
-    //     if (data.err == false) return;
-    //     alert("Redirecting to Dashboard Page");
-    //     let userData = data.user;
-    //     console.log(data.user);
-    //     localStorage.setItem('userDetails', JSON.stringify(userData))
-    //     redirectToLogin();
-    // })
+// posting new user data to server
+async function registerUser(newUserObject) {
+    try {
+        const registrationResponse = await fetch(`${registrationUrl}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newUserObject),
+        });
+
+        const registrationData = await registrationResponse.json();
+        alert(`${registrationData.msg}`);
+        console.log(registrationData.user);
+
+        const welcomeResponse = await fetch(`${BaseUrl}/mail/welcome-user`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email: registrationData.user.email }),
+        });
+
+        const welcomeData = await welcomeResponse.json();
+        alert(welcomeData.msg);
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
 }
 
 // // redirecting to dashboard
@@ -133,7 +174,3 @@ function RegisterUser() {
 // function redirectToLogin() {
 //     location.href = "./landing.html";
 // };
-
-
-// Doctor = "Veterinary Nutrition", "Veterinary Pathology", 'Veterinary Sports Animals', "Veterinary Behaviorists", "Veterinary Dentistry",
-//     "Veterinary Dermatology"
