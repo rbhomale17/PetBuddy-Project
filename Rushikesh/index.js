@@ -6,13 +6,10 @@ const { userRouter } = require('../Rushikesh/Backend/routes/users.route');
 const { authRoute } = require('./Backend/routes/auth.routes');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-
 const {MailRouter} = require('./Backend/routes/mail.router'); 
-
-
 let {adminroute}=require("../Rushikesh/Backend/routes/admin")
-
 let {doctorroute}=require("../Rushikesh/Backend/routes/doctor.routes")
+
 let {appointmentModel} =require("../Rushikesh/Backend/models/appointmentModel")
 require('dotenv').config();
 const app = express();
@@ -46,7 +43,7 @@ async function deleteAppointments() {
 // ****************************
 
 app.get('/', (req, res) => {
-    res.send('welcome to MeetEasy server')
+    res.send('welcome to PetBuddy+ server')
 })
 
 app.use("/", authRoute);

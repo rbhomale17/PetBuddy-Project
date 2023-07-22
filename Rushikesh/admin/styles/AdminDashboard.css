@@ -679,7 +679,7 @@ footer {
 }
 
 .card img {
-    width: 70%;
+    width: 100%;
     margin: auto;
     height: 200px;
     padding: 10px;
@@ -751,7 +751,7 @@ footer {
 
 .card {
     width: 100%;
-    /* height: 150px; */
+    height: 200px;
     margin: auto;
     padding: 5px;
     background-color: FFFEFF;
@@ -760,6 +760,7 @@ footer {
     display: grid;
     grid-template-columns: 1fr 3fr;
     font-size: 15px;
+    padding: 10px;
 }
 
 .card button {
@@ -786,9 +787,14 @@ footer {
     margin: auto;
 }
 
+.card_body{
+    padding-top: 10px;
+}
+
 .card img {
-    width: 60%;
+    width: 100%;
     height: 150px;
+    border-radius: 20px;
 }
 
 .fa-solid,
