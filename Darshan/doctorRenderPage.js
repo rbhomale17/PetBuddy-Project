@@ -1,4 +1,4 @@
-let data = [
+let dataa = [
   {
     name: "John Doe",
     email: "john@example.com",
@@ -71,36 +71,37 @@ let data = [
   },
 ];
 //   displayData(data)
-let baseUrl = "";
+let baseUrl = "http://localhost:3000";
 let specialization = document.getElementById("specialization");
 let language = document.getElementById("language");
 let searchBtn = document.getElementById("searchBtn");
 
-displayData(data);
-// searchBtn.addEventListener('click', async() => {
-//     const search_value = document.getElementById('searchId').value;
-//     console.log('Search data:', search_value);
-//     fetchDatawithQuery(search_value)
-// });
+// displayData(data);
+searchBtn.addEventListener('click', async() => {
+    const search_value = document.getElementById('searchId').value;
+    console.log('Search data:', search_value);
+    fetchDatawithQuery(search_value)
+});
 
-// specialization.addEventListener("change", async(e) => {
-//     let search_value = e.target.value
-//     fetchDatawithQuery(search_value)
-// })
+specialization.addEventListener("change", async(e) => {
+    let search_value = e.target.value
+    fetchDatawithQuery(search_value)
+})
 
-// language.addEventListener("change", async(e) => {
-//     let search_value = e.target.value
-//     console.log(search_value)
-//     fetchDatawithQuery(search_value)
-// })
+language.addEventListener("change", async(e) => {
+    let search_value = e.target.value
+    console.log(search_value)
+    fetchDatawithQuery(search_value)
+})
 
 async function fetchDatawithQuery(search_value) {
   try {
     const response = await fetch(
-      `${baseUrl}/doctor/findDoctor?${search_value}`
+      `${baseUrl}/doctor/findDoctor?search=${search_value}`
     );
     const data = await response.json();
-    displayData(data);
+    // console.log(data.data)
+    displayData(data.data);
   } catch (error) {
     console.error("Error fetching data:", error);
   }
@@ -108,10 +109,11 @@ async function fetchDatawithQuery(search_value) {
 // Function to fetch the dummy data
 async function fetchDummyData() {
   try {
-    const response = await fetch(`${baseUrl}`); // Replace with the actual API endpoint where your dummy data is hosted
+    const response = await fetch(`${baseUrl}/doctor`); // Replace with the actual API endpoint where your dummy data is hosted
+    console.log(response)
     const data = await response.json();
-
-    return data;
+    console.log(data.data)
+    return data.data;
   } catch (error) {
     console.error("Error fetching data:", error);
     return null;
@@ -157,13 +159,12 @@ function displayData(data) {
 }
 
 // Call the fetchDummyData function and display the data
-// fetchDummyData()
-//     .then((data) => {
-//     if (data) {
-//         console.log("1")
-//         displayData(data);
-//     }
-//     })
-//     .catch((error) => {
-//     console.log('Error:', error);
-//     });
+fetchDummyData()
+    .then((data) => {
+    if (data) {
+        displayData(data);
+    }
+    })
+    .catch((error) => {
+    console.log('Error:', error);
+    });
