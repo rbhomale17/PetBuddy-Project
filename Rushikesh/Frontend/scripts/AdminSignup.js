@@ -1,6 +1,5 @@
 const BaseUrl = "http://localhost:3000";
 const registrationUrl = `${BaseUrl}/users/register`
-let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
 
 let firstnameError = document.getElementById("firstname-error")
 let mobileError = document.getElementById("mobile-error")
@@ -43,9 +42,9 @@ function validationEmail() {
 function validationPassword() {
     let password = document.getElementById("password").value;
     const passwordInput = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@!#$%^&*()-=_+[\]{}|\\;:'",.<>/?`~]{8,}$/.test(password);
-    console.log(password, passwordInput)
+    // console.log(password, passwordInput)
     if (passwordInput) {
-        console.log("Password is valid.");
+        // console.log("Password is valid.");
         passwordError.innerHTML = '<i class="fas fa-check-circle"></i>';
         return true;
     } else {
@@ -62,7 +61,7 @@ function validationMobile() {
     if (mobile != "") {
         const mobileNumberRegex = /^[0-9]{10}$/.test(mobile)
         if (mobileNumberRegex) {
-            console.log("Mobile is Valid.");
+            // console.log("Mobile is Valid.");
             mobileError.innerHTML = '<i class="fas fa-check-circle"></i>';
             return true;
         } else {
@@ -83,15 +82,17 @@ var username = document.getElementById("name");
 var mobile = document.getElementById("mobile");
 var email = document.getElementById("email");
 var password = document.getElementById("password");
+// let address = document.getElementById("address").value;
 
 function validateSubmit() {
     if (!validationPassword() || !validationEmail() || !validationMobile() || !validationFirstName()) {
         alert(`1. Mobile No. is Invalid, It Must Be of 10 Digits Only.
+2. Address is Invalid, Minimun 4 character required.
                                                         OR
-2. Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.`);
+3. Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.`);
         // alert("Password is invalid. It should have a minimum length of 8 characters, contain at least one letter and one digit, and may include any symbol.");
         submitError.innerHTML = "Please fill correct Data."
-        return false
+        return false;
     } else {
         // flag = true;
         let newUserObject = {
@@ -100,8 +101,9 @@ function validateSubmit() {
             "mobile": mobile.value,
             "picture": `https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292`,
             "email": email.value,
-            "role": 'Customer'
+            "role": 'Admin'
         };
+        console.log(newUserObject)
         registerUser(newUserObject)
         // RegisterUser();
         return true;
@@ -145,17 +147,10 @@ async function registerUser(newUserObject) {
     } catch (error) {
         console.error("Error occurred:", error);
     }
-    localStorage.setItem('userDetails', JSON.stringify(data.user));
-
-    if (registrationData.user.role == "Customer" || registrationData.user.role == "Doctor") alert(`Redirecting to ${registrationData.user.role}'s Dashboard.`), redirectToHome();
-    else if (registrationData.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
 }
 
 // // redirecting to dashboard
 
-function redirectToHome() {
-    location.href = "/Yogita/userDashbord.html";
-};
-function redirectToAdmin() {
-    location.href = "/Rushikesh/admin/AdminDashboard.html";
-};
+// function redirectToLogin() {
+//     location.href = "./landing.html";
+// };

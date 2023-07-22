@@ -6,7 +6,9 @@ const { userRouter } = require('../Rushikesh/Backend/routes/users.route');
 // const { authRoute } = require('./Backend/routes/auth.routes');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-// const {MailRouter} = require('./Backend/routes/mail.router');
+
+const {MailRouter} = require('./Backend/routes/mail.router'); 
+
 
 let {adminroute}=require("../Rushikesh/Backend/routes/admin")
 

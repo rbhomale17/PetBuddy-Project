@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 const userSchema = mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
-    mobile: { type: Number},
+    mobile: { type: Number },
     role: { type: String, required: true, enum: ["Customer", "Admin", "Doctor"] },
     password: { type: String },
     picture: { type: Object },

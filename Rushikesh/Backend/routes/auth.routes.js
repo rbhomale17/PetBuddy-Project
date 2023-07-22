@@ -20,13 +20,13 @@
 //     user.password = undefined;
 //     // `https://meeteasy.netlify.app/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`
 
-//     res.redirect(`http://127.0.0.1:5500/Rushikesh/Frontend/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
-
-//   } else {
-//     res.send('failed to connect')
-//   }
-// }
-// );
+    if (user.role !== 'Admin') res.redirect(`http://127.0.0.1:5500/Yogita/userDashbord.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
+    else res.redirect(`http://127.0.0.1:5500/Rushikesh/admin/AdminDashboard.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
+  } else {
+    res.send('failed to connect')
+  }
+}
+);
 
 // const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
 // const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET

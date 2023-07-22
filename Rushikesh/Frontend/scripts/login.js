@@ -1,5 +1,6 @@
 const BaseUrl = "http://localhost:3000";
-const loginUrl = `${BaseUrl}/users/login`
+const loginUrl = `${BaseUrl}/users/login`;
+let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
 
 let emailError = document.getElementById("email-error")
 let passwordError = document.getElementById("password-error")
@@ -79,19 +80,21 @@ function loginUser() {
         .then((data) => {
             alert(`${data.msg}`);
             console.log(data.user);
-            // localStorage.setItem('userDetails', JSON.stringify(data.user));
+            localStorage.setItem('userDetails', JSON.stringify(data.user));
 
-            // if (data.user.role == "User") alert("Redirecting to Home Page"), redirectToHome();
-            // else if (data.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
+            if (data.user.role == "Customer" || data.user.role == "Doctor") alert(`Redirecting to ${data.user.role}'s Dashboard.`), redirectToHome();
+            else if (data.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
             // else alert("Redirecting to Sign up Page")//, location.href = "./signup.html"
+        }).catch((err) => {
+            alert(err)
         })
 }
 
 // redirecting to dashboard
 
 function redirectToHome() {
-    location.href = "./landing.html";
+    location.href = "/Yogita/userDashbord.html";
 };
 function redirectToAdmin() {
-    location.href = "./admin/admin.html"
+    location.href = "/Rushikesh/admin/AdminDashboard.html";
 };
