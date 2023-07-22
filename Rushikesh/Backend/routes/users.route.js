@@ -12,15 +12,27 @@ const userRouter = express.Router();
 
 userRouter.get("/", async (req, res) => {
     // console.log(1);
-    const { page, limit } = req.query;
-    if (page && limit) {
-        let skipped = (+limit * +page) - +limit;
-        // console.log(skipped)
-        let users = await UserModel.find().skip(skipped).limit(limit);
-        res.send({ users: users });
+    const { page, limit, search } = req.query;
+    if (search) {
+        if (page && limit) {
+            let skipped = (+limit * +page) - +limit;
+            // console.log(skipped)
+            let users = await UserModel.find({ name: { $regex: search, $options: 'i' } }).skip(skipped).limit(limit);
+            res.send({ users: users });
+        } else {
+            let users = await UserModel.find({ name: { $regex: search, $options: 'i' } });
+            res.send({ users: users });
+        }
     } else {
-        let users = await UserModel.find();
-        res.send({ users: users, hi: 1 });
+        if (page && limit) {
+            let skipped = (+limit * +page) - +limit;
+            // console.log(skipped)
+            let users = await UserModel.find().skip(skipped).limit(limit);
+            res.send({ users: users });
+        } else {
+            let users = await UserModel.find();
+            res.send({ users: users });
+        }
     }
 })
 
@@ -69,27 +81,31 @@ userRouter.post("/login", loginMiddleware, async (req, res) => {
 });
 
 
-// userRouter.patch("/update", UserAuthorizationMiddleware, async (req, res) => {
-//     const { userID, name } = req.body;
-//     try {
-//         await UserModel.findByIdAndUpdate(userID, req.body);
-//         res.send({ msg: `${name}'s Details are Updated Successfully.` })
-//     } catch (error) {
-//         res.send({ err: error.message })
-//     }
-// });
+userRouter.patch("/update", async (req, res) => {
+    const { userID } = req.body;
+    try {
+        await UserModel.findByIdAndUpdate(userID, req.body);
+        res.send({ msg: `Details are Updated Successfully.` })
+    } catch (error) {
+        res.send({ err: error.message })
+    }
+});
 
-// userRouter.delete("/delete/:id", UserAuthorizationMiddleware, async (req, res) => {
-//     const { id } = req.params;
-//     let user = await UserModel.findById(id);
-//     try {
-//         let DeleteUser = await UserModel.findByIdAndDelete(id);
-//         // console.log(DeleteUser);
-//         res.send({ msg: `${user.name}'s Account is Deleted Successfully.`, Deleted_User: DeleteUser })
-//     } catch (error) {
-//         res.send({ err: error.message })
-//     }
-// });
+userRouter.delete("/delete/:id", async (req, res) => {
+    const { id } = req.params;
+    let user = await UserModel.findById(id);
+    try {
+        if (user) {
+            let DeleteUser = await UserModel.findByIdAndDelete(id);
+            // console.log(DeleteUser);
+            res.send({ msg: `${user.name}'s Account is Deleted Successfully.`, Deleted_User: DeleteUser })
+        } else {
+            res.send({ msg: "Invalid User ID, User Not Found!" })
+        }
+    } catch (error) {
+        res.send({ err: error.message })
+    }
+});
 
 
 
