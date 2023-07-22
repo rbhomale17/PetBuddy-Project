@@ -91,18 +91,7 @@ userRouter.post("/login", loginMiddleware, async (req, res) => {
 //     }
 // });
 
-userRouter.put("/bookAppointment",async(req,res)=>{
-        let {pet_type,pet_gender,user_id,meeting_time}=req.body
-    try {
-        
-        
-        
-    } catch (error) {
-        res.status(400).send({
-            "msg":error.message
-        })
-    }
-})
+
 
 
 

@@ -1,32 +1,33 @@
 
-let mongoose=require("mongoose")
+let mongoose = require("mongoose")
 
-let appointmentSchema=mongoose.Schema({
-    pet_type:{
-        type:String,
-        default:null
+let appointmentSchema = mongoose.Schema({
+    pet_type: {
+        type: String,
+        default: null
     },
-    pet_gender:{
-        type:String,
-        default:null
+    pet_gender: {
+        type: String,
+        default: null
     },
-    meetiing_id:{
-        type:String
+    meeting_link: {
+        type: String
     },
-    meeting_time:{
-        type:String,
+    meeting_time: {
+        type: String,
     },
-    doctor_id:{
-        type:mongoose.Schema.ObjectId,
-        ref:"user"
+    doctor_id: {
+        type: mongoose.Schema.ObjectId,
+        ref: "user"
     },
-    user_id:{
-        type:mongoose.Schema.ObjectId,
-        ref:"user",
-        default:null
-    }
+    user_id: {
+        type: mongoose.Schema.ObjectId,
+        ref: "user",
+        default: null
+    },
+    status: { type: Boolean, default: false, enum: [true, false] }
 })
 
-const appointmentModel=mongoose.model("appointment",appointmentSchema)
+const appointmentModel = mongoose.model("appointment", appointmentSchema)
 
-module.exports={appointmentModel}
+module.exports = { appointmentModel }
