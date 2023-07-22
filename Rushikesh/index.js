@@ -3,7 +3,7 @@ const CORS = require('cors');
 const { photoRouter } = require('./Backend/routes/photos.router');
 const {connection} = require('../Rushikesh/Backend/config/db');
 const { userRouter } = require('../Rushikesh/Backend/routes/users.route');
-// const { authRoute } = require('./Backend/routes/auth.routes');
+const { authRoute } = require('./Backend/routes/auth.routes');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 
@@ -49,10 +49,10 @@ app.get('/', (req, res) => {
     res.send('welcome to MeetEasy server')
 })
 
-// app.use("/", authRoute);
-// app.use('/photos', photoRouter)
+app.use("/", authRoute);
+app.use('/photos', photoRouter)
 app.use('/users', userRouter)
-// app.use('/mail', MailRouter)
+app.use('/mail', MailRouter)
 
 app.use("/admin",adminroute)
 app.use("/doctor",doctorroute)
