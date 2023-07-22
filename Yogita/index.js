@@ -59,3 +59,21 @@ setInterval(function () {
     counter = 1;
   }
 }, 4000);
+// let signUser = document.getElementById("username");
+// let user_detail_name = document.getElementById("user-detail-name");
+
+// signUser.textContent = `${userDetails.name}`;
+// user_detail_name.textContent = `${userDetails.name}`;
+
+// let imageDiv = document.getElementById("imageDiv");
+
+// imageDiv.innerHTML = null;
+// let image = document.createElement("img");
+// image.setAttribute("src", userDetails.picture);
+// image.setAttribute("alt", userDetails.name);
+// imageDiv.append(image);
+
+// function logout() {
+//   localStorage.removeItem("userDetails");
+//   location.href = "index.html";
+// }

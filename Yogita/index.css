@@ -312,7 +312,7 @@ header {
   align-items: center;
   flex-direction: column;
   color: white;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   margin-top: 30px;
 }
 
@@ -581,7 +581,7 @@ footer {
 /*//// mid team ////*/
 #mid-team {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   width: 90%;
   background-color: #27ae60;
@@ -604,10 +604,13 @@ footer {
   /* padding: 0; */
   background-color: #27ae60;
   margin-bottom: 20px;
+  /* height: 10%; */
+
   /* text-align: center; */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 5px;
 }
+
 #mid-thirdh2 {
   text-align: center;
   margin-bottom: 20px;
@@ -616,7 +619,7 @@ footer {
 #mid-team div img {
   width: 100%;
   margin: auto;
-  height: 150px;
+  height: 300px;
   border-radius: 60px;
   margin-bottom: 10px;
 }
@@ -679,6 +682,13 @@ footer {
   #mid-third {
     grid-template-columns: repeat(1, 1fr);
   }
+  #mid-team div img {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    border-radius: 60px;
+    margin-bottom: 10px;
+  }
 }
 /* small Slider */
 
@@ -699,15 +709,36 @@ footer {
   .carousel-cell {
     width: 33%;
   }
+  #mid-team div img {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    border-radius: 60px;
+    margin-bottom: 10px;
+  }
 }
 @media screen and (max-width: 700px) {
   .carousel-cell {
     width: 50%;
   }
+  #mid-team div img {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    border-radius: 60px;
+    margin-bottom: 10px;
+  }
 }
 @media screen and (max-width: 600px) {
   .carousel-cell {
     width: 100%;
+  }
+  #mid-team div img {
+    width: 100%;
+    margin: auto;
+    height: 300px;
+    border-radius: 60px;
+    margin-bottom: 10px;
   }
 }
 
