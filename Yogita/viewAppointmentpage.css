@@ -181,6 +181,7 @@ header {
 @media (max-width: 991px) {
   header {
     padding: 18px 4%;
+    background-color: #27ae60;
   }
 
   section {
@@ -203,6 +204,7 @@ header {
 
   header {
     padding: 11px 4%;
+    background-color: #27ae60;
     /* width: 100%;
     margin-right: 30px; */
     /* border: 1px solid red; */
@@ -221,7 +223,8 @@ header {
     right: 0;
     display: flex;
     flex-direction: column;
-    background: var(--bg-color);
+    background-color: #27ae60;
+    /* background: var(--bg-color); */
     box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
     transition: 0.2s ease;
     text-align: center;
@@ -229,12 +232,13 @@ header {
 
   .navbar.active {
     top: 100%;
+    background-color: #27ae60;
   }
 
   .navbar a {
     padding: 1.5rem;
     display: block;
-    background: var(--bg-color);
+    background: #27ae60;
   }
 
   #darkmode {
@@ -273,7 +277,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: var(--bg-color);
+    background-color: #27ae60;
     padding: 13px 10%;
     transition: 0.2s;
     box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
@@ -298,7 +302,6 @@ header {
     margin-left: 0px;
   }
 }
-
 /* <--footer part --> */
 #f-main {
   display: flex;
@@ -308,7 +311,7 @@ header {
   align-items: center;
   flex-direction: column;
   color: white;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   margin-top: 30px;
 }
 
@@ -439,14 +442,14 @@ footer {
   border: 1px solid red; */
 }
 .main {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
   justify-content: center;
 }
 #view {
-  color: black;
+  /* color: black; */
   /* margin-top: 200%; */
-  margin-top: 13%;
+  margin-top: 10%;
   color: #e79d19;
   text-align: center;
   /* border-radius: 1px solid red; */
@@ -454,12 +457,28 @@ footer {
 #data-container > div {
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: white;
   /* justify-content: center; */
+  border-radius: 10px;
+  padding: 10px;
 }
+
 #data-container > div button {
   /* padding: 5px; */
   background-color: #e79d19;
+  width: 40%;
+  margin-left: 25%;
   /* border: 1px solid red; */
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+}
+#data-container > div img {
+  /* border: 1px solid red; */
+  width: 100%;
+  border-radius: 100px;
 }
 @media (max-width: 900px) {
   #data-container {

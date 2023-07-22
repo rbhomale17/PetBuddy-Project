@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
-const baseUrl="http://localhost:3000"
+
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -23,20 +23,6 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
       console.log(userDetails);
       console.log(userDetails.picture);
       userDetails.picture = data.link;
-      let obj = {
-        userID: userDetails._id,
-        picture: data.link
-      }
-      fetch(`${baseUrl}/users/update`, {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json"
-        },
-        body: JSON.stringify(obj)
-      }).then((res) => res.json()).then((res) => {
-        alert(res.msg)
-        // fetchData()
-      })
       localStorage.setItem('userDetails', JSON.stringify(userDetails));
       let imageDiv = document.getElementById('imageDiv');
 
@@ -91,7 +77,7 @@ newChildElement.href = "../Darshan/createAppointmentpage.html";
 
 newChildElement.innerHTML = `
   <div class="skills-card">
-    <img class="features-card-img" src="./images/createAppointmentimg.jpg" alt="html" />
+    <img class="features-card-img" src="./images/scrrenShare.png" alt="html" />
     <h4 class="features-card-name">Create Appointments</h4>
   </div>
 `;
@@ -99,7 +85,7 @@ newChildElement.innerHTML = `
 // Append the new child element to the firstFeaturesContentElement
 firstFeaturesContentElement.appendChild(newChildElement);
 }
-},1500)
+},1000)
 })
 
 let signUser = document.getElementById('username');
