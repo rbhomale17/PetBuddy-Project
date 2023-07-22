@@ -1,39 +1,103 @@
-# ***NXM301 - Construct Week Project For Unit-6 NXM301.***
+# **_NXM301 - Construct Week Project For Unit-6 NXM301._**
 
-# ***Project Code:-  concerned-picture-9849***
+# **_Project Code:- concerned-picture-9849_**
 
-# ***Project Purpose:-  Purpose goes here***
+# **_Project Purpose:- Purpose goes here_**
 
-############################### ***Project Members*** #######################################
+############################### **_Project Members_** #######################################
 
-***Team Lead & Student Code***: ***Rushikesh Diliprao Bhomale ( fw25_348 ) https://github.com/rbhomale17***
+**_Team Lead & Student Code_**: **_Rushikesh Diliprao Bhomale ( fw25_348 ) https://github.com/rbhomale17_**
 
-***Team Member-1 & Student Code*** : ***Darshan Bhandwalkar ( fw22_0556 ) https://github.com/bhandwalkardarshan***
+**_Team Member-1 & Student Code_** : **_Darshan Bhandwalkar ( fw22_0556 ) https://github.com/bhandwalkardarshan_**
 
-***Team Member-2 & Student Code*** : ***Sourabh K T ( fw23_0477 ) https://github.com/sourabhkt1997***
+**_Team Member-2 & Student Code_** : **_Sourabh K T ( fw23_0477 ) https://github.com/sourabhkt1997_**
 
-***Team Member-3 & Student Code*** : ***Sumita Mahato ( fw22_0582 ) https://github.com/Sumitamahato***
+**_Team Member-3 & Student Code_** : **_Sumita Mahato ( fw22_0582 ) https://github.com/Sumitamahato_**
 
-***Team Member-4 & Student Code*** : ***Yogita Mane ( fw24_538 ) https://github.com/Yogita2021***
+**_Team Member-4 & Student Code_** : **_Yogita Mane ( fw24_538 ) https://github.com/Yogita2021_**
 
-***IA Manager: Pankaj kandpal https://github.com/PankajkandpalL***
+**_IA Manager: Pankaj kandpal https://github.com/PankajkandpalL_**
 
-***
+---
 
-***Technology Stacks***
+## Tech Stack
 
-**Front-End**: ***CSS | HTML | JavaScript***
+**Client:** HTML | CSS | Javascript
 
-**Back-End**: ***JavaScript | Node.js | Express JS | npm***
+**Server:** Node.js | Express.js
 
-***
+**Database:** MongoDB | Redis
 
-***Back-End Deployed on Rendor.com***
+**npm packages:** WebRTC | Socket.io | Bcrypt | PassPort | cors | JWT | dotenv | nodemailer | mongoose | express
 
-**Back-End Deployed Link:- link go here**
+**github:** To maintain repository and collabration and version control.
 
-***Project App: Deployed on Netlify.com***
+**VS Code:** To write HTML,CSS and JavaScript code.
 
-***HealthBooster.com: link go here***
+**Google Chrome :** To check the functionality and run the code.
 
-***
+## Frontend Part
+
+- Home Page
+- Login/Signup
+- Dashboard
+- Google OAuth
+- Payment Page
+- Admin Page
+
+## Backend Part
+
+- Authentication using JWT
+- implementation using Socket.io
+- fully functional Video and Audio icons
+
+## Database
+
+- MongoDB
+- Redis
+
+## Features
+
+- Chatting
+- Video Calling
+
+## Application Guide to use features
+
+### To use {Video calling} feature -->
+
+- First Create room
+- User can join the call by using the room ID
+- To end the call click on hang on button
+
+### To use {Chat} feature -->
+
+- First Create room
+- User can join the room using room ID after login
+- Time is displayed of message
+- Notifies User info
+
+<br>
+
+## Home Page
+
+![Screenshot (719)](./Client/Images/indexPage.png)
+
+## Signing Page
+
+![Screenshot (722)](./Client/Images/signUpLogin.png)
+
+## Dashboard Page
+
+![Screenshot](./Client/Images/dashbordPage.png)
+
+## Video Chat Platform
+
+![Screenshot](./Client/Images/videoRoom.png)
+
+## Chat Platform
+
+![Screenshot](./Client/Images/chat.png)
+
+## Admin Dashboard Page
+
+![Screenshot](./Client/Images/adminDashboard.png)
