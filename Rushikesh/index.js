@@ -1,3 +1,4 @@
+
 const express = require("express");
 const CORS = require("cors");
 const { photoRouter } = require("./Backend/routes/photos.router");
@@ -16,6 +17,7 @@ let {
   appointmentModel,
 } = require("../Rushikesh/Backend/models/appointmentModel");
 require("dotenv").config();
+
 const app = express();
 app.use(express.json());
 app.use(CORS());
@@ -44,11 +46,9 @@ cron.schedule("0 0 * * *", () => {
   deleteAppointments();
 });
 
-// ****************************
-
-app.get("/", (req, res) => {
-  res.send("welcome to MeetEasy server");
-});
+app.get('/', (req, res) => {
+    res.send('welcome to PetBuddy+ server')
+})
 
 app.use("/", authRoute);
 app.use("/photos", photoRouter);
