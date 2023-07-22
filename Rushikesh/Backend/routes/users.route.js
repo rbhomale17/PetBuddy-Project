@@ -1,10 +1,10 @@
 const express = require("express");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { UserModel } = require("../models/user.model");
 const { registrationMiddleware } = require("../middlewares/registration.middleware");
 const { loginMiddleware } = require("../middlewares/login.middleware");
-const { use } = require("passport");
+// const { use } = require("passport");
 const { appointmentModel } = require("../models/appointmentModel");
 
 require('dotenv').config();
