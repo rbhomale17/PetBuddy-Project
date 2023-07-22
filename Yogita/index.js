@@ -16,33 +16,6 @@ window.onscroll = () => {
 };
 
 ////////////// caching user data from params
-const urlParams = new URLSearchParams(window.location.search);
-const userData = JSON.parse(decodeURIComponent(urlParams.get("userdata")));
-///////////// Use the user data in your HTML page
-// /////////////////console.log(userData); // Output the user data to the console or perform any other operations
-// window.addEventListener("load", () => {
-//   if (userData) {
-//     localStorage.setItem("userDetails", JSON.stringify(userData));
-//   }
-// });
-// if (userData) {
-//   localStorage.setItem("userDetails", JSON.stringify(userData));
-// }
-
-// let signUser = document.getElementById("username");
-// let user_detail_name = document.getElementById("user-detail-name");
-
-// signUser.textContent = `${userDetails.name}`;
-// user_detail_name.textContent = `${userDetails.name}`;
-
-// let imageDiv = document.getElementById("imageDiv");
-
-// imageDiv.innerHTML = null;
-// let image = document.createElement("img");
-// image.setAttribute("src", userDetails.picture);
-// image.setAttribute("alt", userDetails.name);
-// imageDiv.append(image);
-///////////////////// https://meeteasy-main-server.onrender.com/photos/files/648b04ab43adde36fe392b22
 
 let amount = localStorage.getItem("amount") || {};
 function logout() {
@@ -59,21 +32,3 @@ setInterval(function () {
     counter = 1;
   }
 }, 4000);
-// let signUser = document.getElementById("username");
-// let user_detail_name = document.getElementById("user-detail-name");
-
-// signUser.textContent = `${userDetails.name}`;
-// user_detail_name.textContent = `${userDetails.name}`;
-
-// let imageDiv = document.getElementById("imageDiv");
-
-// imageDiv.innerHTML = null;
-// let image = document.createElement("img");
-// image.setAttribute("src", userDetails.picture);
-// image.setAttribute("alt", userDetails.name);
-// imageDiv.append(image);
-
-// function logout() {
-//   localStorage.removeItem("userDetails");
-//   location.href = "index.html";
-// }

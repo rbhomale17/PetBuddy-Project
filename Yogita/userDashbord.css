@@ -45,11 +45,6 @@ body {
   color: var(--text-color);
 }
 
-/* *::selection {
-  color: var(--bg-color);
-  background: var(--main-color);
-} */
-
 .heading {
   text-align: center;
 }
@@ -61,7 +56,6 @@ body {
 .heading span {
   font-size: var(--p-font);
   color: rgb(2, 166, 70);
-  /* font-weight: 300; */
 }
 
 header {
@@ -76,12 +70,7 @@ header {
   background-color: #27ae60;
   padding: 13px 5%;
   transition: 0.2s;
-  /* box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288); */
 }
-
-/* header.shadow {
-  box-shadow: 0 0 4px rgb(14 55 54 / 15%);
-} */
 
 .logo {
   font-size: 1.61rem;
@@ -91,8 +80,7 @@ header {
 
 .logo img {
   width: 150%;
-  /* object-position: center; */
-  /* object-fit: contain; */
+
   height: 60px;
   margin: 0px;
 }
@@ -110,7 +98,7 @@ header {
 .navbar a {
   font-size: 1.1rem;
   padding: 10px 20px;
-  /* color: var(--text-color); */
+
   color: white;
   font-weight: 500;
 }
@@ -203,15 +191,10 @@ header {
 
   header {
     padding: 11px 4%;
-    /* width: 100%;
-    margin-right: 30px; */
-    /* border: 1px solid red; */
   }
 
   #menu-icon {
     display: initial;
-    /* border: 1px solid red; */
-    /* color: var(--text-color); */
   }
 
   header .navbar {
@@ -428,9 +411,6 @@ footer {
 
 /* midle section */
 #home {
-  /* position: relative;
-    width: 100%;
-    min-height: 100vh; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
@@ -438,11 +418,6 @@ footer {
   gap: 1rem;
   /* border: 1px solid red; */
 }
-
-/* .home-img {
-    order: 3;
-    width: 100%;
-} */
 
 .home-img1 img {
   width: 60%;
@@ -673,8 +648,7 @@ span {
 
   header {
     padding: 11px 4%;
-    /* width: 100%;
-    margin-right: 30px; */
+
     background-color: #27ae60;
   }
 

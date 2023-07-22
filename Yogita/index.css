@@ -45,11 +45,6 @@ body {
   color: var(--text-color);
 }
 
-/* *::selection {
-  color: var(--bg-color);
-  background: var(--main-color);
-} */
-
 .heading {
   text-align: center;
 }
@@ -61,7 +56,6 @@ body {
 .heading span {
   font-size: var(--p-font);
   color: rgb(2, 166, 70);
-  /* font-weight: 300; */
 }
 
 header {
@@ -79,10 +73,6 @@ header {
   /* box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288); */
 }
 
-/* header.shadow {
-  box-shadow: 0 0 4px rgb(14 55 54 / 15%);
-} */
-
 .logo {
   font-size: 1.61rem;
   font-weight: 600;
@@ -91,8 +81,7 @@ header {
 
 .logo img {
   width: 150%;
-  /* object-position: center; */
-  /* object-fit: contain; */
+
   height: 60px;
   margin: 0px;
 }
@@ -110,7 +99,7 @@ header {
 .navbar a {
   font-size: 1.1rem;
   padding: 10px 20px;
-  /* color: var(--text-color); */
+
   color: white;
   font-weight: 500;
 }
@@ -122,44 +111,12 @@ header {
 #log:hover {
   cursor: pointer;
 }
-/* 
-.dropdown {
-  display: inline-block;
-  position: relative;
-  color: rgb(2, 166, 70);
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  width: 100%;
-  overflow: auto;
-  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content a {
-  display: block;
-  color: black;
-  padding: 5px;
-  text-decoration: none;
-  background-color: rgb(205, 250, 214);
-}
-
-.dropdown-content a:hover {
-  color: black;
-  background-color: #e79d19;
-} */
 
 #menu-icon {
   font-size: 24px;
   cursor: pointer;
   z-index: 10001;
   display: none;
-  /* border: 1px solid red; */
 }
 
 #darkmode {
@@ -205,15 +162,13 @@ header {
   header {
     padding: 11px 4%;
     background-color: #27ae60;
-    /* width: 100%;
-    margin-right: 30px; */
+
     /* border: 1px solid red; */
   }
 
   #menu-icon {
     display: initial;
     /* border: 1px solid red; */
-    /* color: var(--text-color); */
   }
 
   header .navbar {
@@ -224,7 +179,6 @@ header {
     display: flex;
     flex-direction: column;
     background-color: #27ae60;
-    /* background: var(--bg-color); */
     box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
     transition: 0.2s ease;
     text-align: center;
@@ -312,7 +266,6 @@ header {
   align-items: center;
   flex-direction: column;
   color: white;
-  /* margin-bottom: 40px; */
   margin-top: 30px;
 }
 
@@ -585,8 +538,6 @@ footer {
   gap: 15px;
   width: 90%;
   background-color: #27ae60;
-  /* margin-top: 20px; */
-  /* border: 2px solid blue; */
   margin: auto;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -601,12 +552,8 @@ footer {
 }
 #mid-team div {
   /* border: 2px solid red; */
-  /* padding: 0; */
   background-color: #27ae60;
   margin-bottom: 20px;
-  /* height: 10%; */
-
-  /* text-align: center; */
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   border-radius: 5px;
 }
@@ -628,7 +575,6 @@ footer {
   /* border: 2px solid red; */
   width: 100%;
   margin: auto;
-  /* background-color: #e79d19; */
   font-size: 22px;
   color: white;
   text-align: center;
@@ -998,10 +944,7 @@ li {
   font-weight: bold;
   text-decoration: none;
 }
-/* .land-sections-dept{
-    width:85rem;
-    margin:auto;
-} */
+
 .dept-card {
   width: 100%;
   position: relative;
@@ -1012,7 +955,6 @@ li {
   margin: 1rem 0;
 }
 #dept-sec > div:nth-child(odd) > .dept-body {
-  /* border:1px solid black; */
   width: 40%;
   position: absolute;
   top: 3rem;

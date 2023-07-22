@@ -66,18 +66,19 @@ menu.onclick = () => {
 window.onscroll = () => {
   navbar.classList.remove("active");
 };
+let signUser = document.getElementById('username');
+let user_detail_name = document.getElementById('user-detail-name');
 
-// caching user data from params
-const urlParams = new URLSearchParams(window.location.search);
-const userData = JSON.parse(decodeURIComponent(urlParams.get('userdata')));
-// Use the user data in your HTML page
-// console.log(userData); // Output the user data to the console or perform any other operations
-window.addEventListener('load', () => {
-setTimeout(()=>{
-    if (userData) {
-    localStorage.setItem('userDetails', JSON.stringify(userData))
-  }
-console.log(userDetails)
+signUser.textContent = `${userDetails.name}`
+user_detail_name.textContent = `${userDetails.name}`;
+
+let imageDiv = document.getElementById('imageDiv');
+
+imageDiv.innerHTML = null;
+let image = document.createElement('img');
+image.setAttribute('src', userDetails.picture);
+image.setAttribute('alt', userDetails.name);
+imageDiv.append(image);
 if(userDetails.role=="Doctor"){
 // Get the elements with the class name "features-content"
 const featuresContentElements = document.getElementsByClassName("features-content");
@@ -99,25 +100,53 @@ newChildElement.innerHTML = `
 // Append the new child element to the firstFeaturesContentElement
 firstFeaturesContentElement.appendChild(newChildElement);
 }
-},1500)
+// // caching user data from params
+// const urlParams = new URLSearchParams(window.location.search);
+// const userData = JSON.parse(decodeURIComponent(urlParams.get('userdata')));
+// Use the user data in your HTML page
+// console.log(userData); // Output the user data to the console or perform any other operations
+window.addEventListener('load', () => {
+  // caching user data from params
+  const urlParams = new URLSearchParams(window.location.search);
+  const userData = JSON.parse(decodeURIComponent(urlParams.get('userdata')));
+  if (userData) {
+    localStorage.setItem('userDetails', JSON.stringify(userData))
+    let signUser = document.getElementById('username');
+    let user_detail_name = document.getElementById('user-detail-name');
+
+    signUser.textContent = `${userData.name}`
+    user_detail_name.textContent = `${userData.name}`;
+
+    let imageDiv = document.getElementById('imageDiv');
+
+    imageDiv.innerHTML = null;
+    let image = document.createElement('img');
+    image.setAttribute('src', userData.picture);
+    image.setAttribute('alt', userData.name);
+    imageDiv.append(image);
+    if(userData.role=="Doctor"){
+// Get the elements with the class name "features-content"
+const featuresContentElements = document.getElementsByClassName("features-content");
+
+// Assuming you want to add the new child to the first element with class "features-content"
+const firstFeaturesContentElement = featuresContentElements[0];
+
+// Create the new child element
+const newChildElement = document.createElement("a");
+newChildElement.href = "../Darshan/createAppointmentpage.html";
+
+newChildElement.innerHTML = `
+  <div class="skills-card">
+    <img class="features-card-img" src="./images/createAppointmentimg.jpg" alt="html" />
+    <h4 class="features-card-name">Create Appointments</h4>
+  </div>
+`;
+
+// Append the new child element to the firstFeaturesContentElement
+firstFeaturesContentElement.appendChild(newChildElement);
+}
+  }
 })
-
-let signUser = document.getElementById('username');
-let user_detail_name = document.getElementById('user-detail-name');
-
-signUser.textContent = `${userDetails.name}`
-user_detail_name.textContent = `${userDetails.name}`;
-
-let imageDiv = document.getElementById('imageDiv');
-
-imageDiv.innerHTML = null;
-let image = document.createElement('img');
-image.setAttribute('src', userDetails.picture);
-image.setAttribute('alt', userDetails.name);
-imageDiv.append(image);
-// https://meeteasy-main-server.onrender.com/photos/files/648b04ab43adde36fe392b22
-
-
 function logout() {
 
   localStorage.removeItem('userDetails');

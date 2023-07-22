@@ -45,11 +45,6 @@ body {
   color: var(--text-color);
 }
 
-/* *::selection {
-  color: var(--bg-color);
-  background: var(--main-color);
-} */
-
 .heading {
   text-align: center;
 }
@@ -61,7 +56,6 @@ body {
 .heading span {
   font-size: var(--p-font);
   color: rgb(2, 166, 70);
-  /* font-weight: 300; */
 }
 
 header {
@@ -79,10 +73,6 @@ header {
   /* box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288); */
 }
 
-/* header.shadow {
-  box-shadow: 0 0 4px rgb(14 55 54 / 15%);
-} */
-
 .logo {
   font-size: 1.61rem;
   font-weight: 600;
@@ -91,8 +81,7 @@ header {
 
 .logo img {
   width: 150%;
-  /* object-position: center; */
-  /* object-fit: contain; */
+
   height: 60px;
   margin: 0px;
 }
@@ -110,7 +99,7 @@ header {
 .navbar a {
   font-size: 1.1rem;
   padding: 10px 20px;
-  /* color: var(--text-color); */
+
   color: white;
   font-weight: 500;
 }
@@ -205,15 +194,11 @@ header {
   header {
     padding: 11px 4%;
     background-color: #27ae60;
-    /* width: 100%;
-    margin-right: 30px; */
-    /* border: 1px solid red; */
   }
 
   #menu-icon {
     display: initial;
     /* border: 1px solid red; */
-    /* color: var(--text-color); */
   }
 
   header .navbar {
@@ -224,7 +209,7 @@ header {
     display: flex;
     flex-direction: column;
     background-color: #27ae60;
-    /* background: var(--bg-color); */
+
     box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
     transition: 0.2s ease;
     text-align: center;
@@ -447,8 +432,6 @@ footer {
   justify-content: center;
 }
 #view {
-  /* color: black; */
-  /* margin-top: 200%; */
   margin-top: 10%;
   color: #e79d19;
   text-align: center;
