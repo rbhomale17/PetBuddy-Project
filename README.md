@@ -103,34 +103,16 @@
 
 ## Home Page
 
-![Screenshot (719)](./Client/Images/indexPage.png)
-
-![Screenshot (719)](./Client/Images/indexPage.png)
-
 ## Signing Page
-
-![Screenshot (722)](./Client/Images/signUpLogin.png)
 
 ## User Dashboard Page
 
-![Screenshot](./Client/Images/dashbordPage.png)
-
 ## Admin Dashboard Page
-
-![Screenshot](./Client/Images/dashbordPage.png)
 
 ## Book Appointment Page
 
-![Screenshot](./Client/Images/videoRoom.png)
-
 ## View Appointment Page
-
-![Screenshot](./Client/Images/chat.png)
 
 ## Create Appointment Page
 
-![Screenshot](./Client/Images/chat.png)
-
 ## Admin Page
-
-![Screenshot](./Client/Images/adminDashboard.png)
