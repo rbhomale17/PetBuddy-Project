@@ -7,7 +7,7 @@ Submitbutton.addEventListener("click", function (e) {
         let obj = {
             email: email.value
         }
-        fetch(`http://localhost:3000/mail/forgot-password`, {
+        fetch(`https://petbuddy-main-server.onrender.com/mail/forgot-password`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

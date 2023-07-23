@@ -2,14 +2,14 @@ let userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
 let doctorDetail = JSON.parse(localStorage.getItem("selectedDoctor")) || {};
 
 const user_id = userDetails._id;
-const baseUrl = "http://localhost:3000/doctor/appointments";
+const baseUrl = "https://petbuddy-main-server.onrender.com/doctor/appointments";
 
 // Function to fetch the Appointmet data
 async function fetchAppointmentData() {
   try {
     // console.log(user_id);
     const response = await fetch(
-      `http://localhost:3000/doctor/userAppointments?id=${userDetails._id}`
+      `https://petbuddy-main-server.onrender.com/doctor/userAppointments?id=${userDetails._id}`
     );
     const data = await response.json();
     console.log("Data from API:", data); // Check the structure of data here

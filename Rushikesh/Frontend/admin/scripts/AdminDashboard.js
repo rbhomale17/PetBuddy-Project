@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
-var baseUrl = ` http://localhost:3000`
+var baseUrl = ` https://petbuddy-main-server.onrender.com`
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -13,7 +13,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
   formData.append('file', file);
   // console.log(formData);
 
-  fetch(`http://localhost:3000/photos/upload`, {
+  fetch(`https://petbuddy-main-server.onrender.com/photos/upload`, {
     method: 'POST',
     body: formData
   })

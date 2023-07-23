@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
-let baseUrl = "http://localhost:3000";
+let baseUrl = "https://petbuddy-main-server.onrender.com";
 let specialization = document.getElementById("specialization");
 let language = document.getElementById("language");
 let searchBtn = document.getElementById("searchBtn");

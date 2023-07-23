@@ -1,4 +1,4 @@
-let baseUrl = "http://localhost:3000";
+let baseUrl = "https://petbuddy-main-server.onrender.com";
 let id = JSON.parse(localStorage.getItem("selectedDoctor"))._id
 let userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
 const user_id = userDetails._id;

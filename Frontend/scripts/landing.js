@@ -13,7 +13,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
   formData.append('file', file);
   // console.log(formData);
 
-  fetch('https://meeteasy-main-server.onrender.com/photos/upload', {
+  fetch('https://petbuddy-main-server.onrender.com/photos/upload', {
     method: 'POST',
     body: formData
   })

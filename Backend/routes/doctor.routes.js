@@ -108,7 +108,7 @@ doctorroute.post("/addUserToAppointment", async (req, res) => {
 // get all appointment related to user (all users)
 doctorroute.get("/appointments", async (req, res) => {
     try {
-        // http://localhost:3000/doctor/appointments?id=
+        // https://petbuddy-main-server.onrender.com/doctor/appointments?id=
         const { id } = req.query
         // let doctoID = "64ba719e180910c5986009dc"
         let data = await UserModel.findById(id).populate('appointments')//.populate('doctor_id')
@@ -125,7 +125,7 @@ doctorroute.get("/appointments", async (req, res) => {
 
 doctorroute.get("/userAppointments", async (req, res) => {
     try {
-        // http://localhost:3000/doctor/appointments?id=
+        // https://petbuddy-main-server.onrender.com/doctor/appointments?id=
         const { id } = req.query
         // let doctoID = "64ba719e180910c5986009dc"
         // let data = await UserModel.findById(id).populate('appointments').populate('doctor_id')

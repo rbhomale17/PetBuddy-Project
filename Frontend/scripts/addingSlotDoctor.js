@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://petbuddy-main-server.onrender.com"
 
 // console.log(doctor_data)
 if (userDetails.role == "Doctor") {

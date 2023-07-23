@@ -1,4 +1,4 @@
-const BaseUrl = "http://localhost:3000";
+const BaseUrl = "https://petbuddy-main-server.onrender.com";
 const loginUrl = `${BaseUrl}/users/login`;
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
 

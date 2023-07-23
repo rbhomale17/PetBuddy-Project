@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
-const baseUrl = "http://localhost:3000"
+const baseUrl = "https://petbuddy-main-server.onrender.com"
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
 

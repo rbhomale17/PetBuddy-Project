@@ -104,7 +104,7 @@ function UpdatePassword() {
     console.log(detailsObject);
     // make a requiest to server here 
     // ! send the detailsObject in Body
-    fetch(`http://localhost:3000/mail/reset-password-Oauth`, {
+    fetch(`https://petbuddy-main-server.onrender.com/mail/reset-password-Oauth`, {
         method: "POST",
         headers: {
             "content-type": "application/json"
