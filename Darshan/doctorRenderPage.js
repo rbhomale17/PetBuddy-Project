@@ -1,4 +1,4 @@
-
+let userDetails = JSON.parse(localStorage.getItem("userDetails")) || {};
 let baseUrl = "http://localhost:3000";
 let specialization = document.getElementById("specialization");
 let language = document.getElementById("language");
@@ -97,3 +97,29 @@ fetchDummyData()
     .catch((error) => {
     console.log('Error:', error);
     });
+
+    // navbar js here
+let header = document.querySelector("header");
+let menu = document.querySelector("#menu-icon");
+let navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("shadow", window.scrollY > 0);
+});
+
+menu.onclick = () => {
+  navbar.classList.toggle("active");
+};
+window.onscroll = () => {
+  navbar.classList.remove("active");
+};
+
+// for name in signup form
+let signUser = document.getElementById("username");
+
+signUser.textContent = `${userDetails.name}`;
+
+function logout() {
+  localStorage.removeItem("userDetails");
+  location.href = "index.html";
+}
