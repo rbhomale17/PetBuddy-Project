@@ -1,36 +1,66 @@
+let baseUrl = "http://localhost:3000"
 let doctor_data = JSON.parse(localStorage.getItem("selectedDoctor"))
+// console.log(doctor_data)
+let card = `
+    <div>
+        <img class="profile-pic" src=${doctor_data.picture.url} alt="Profile Picture">
+    </div>
+    <div>
+        <div class="name">${doctor_data.name}</div>
+        <div class="specialization">${doctor_data.specialization}</div>
+        <div class="address">${doctor_data.address}</div>
+        <div class="contact">
+        Email: ${doctor_data.email}<br>
+        Mobile: ${doctor_data.Mobile}
+        </div>    
+    </div>
+`
+document.getElementById("doctor_data").innerHTML = (card)
+// 2023-04-06T10:20:00.000Z
+let timeArray = [9,10,11,12,13,14,15,16,17,18]
+let timeButtonsContainer = document.getElementById("slot_btn")
+timeArray.forEach(time => {
+    const todayDate = new Date().toISOString().substring(0, 10)
+    const button = document.createElement("button");
+    button.classList = "slot_buttons"
+    button.innerText = `${todayDate}, Time: ${time}:00`;
 
-/*
-address
-: 
-"At Murtizapur Akola"
-appointments
-: 
-["64bbde991182882ec3033cee", "64bbdea01182882ec3033cf2", "64bbdea41182882ec3033cf6"]
-email
-: 
-"dummywebvideo@gmail.com"
-language
-: 
-"English"
-mobile
-: 
-1234567891
-name
-: 
-"Tirtha Masai"
-password
-: 
-"$2b$05$gRvYf4Wo6v/ZhH21RySICuT1mCpbJQeIDJ8MDK7TDPajh8aXlI61i"
-picture
-: 
-"https://meeteasy-main-server.onrender.com/photos/files/64b7b692a15d975b2682f292"
-role
-: 
-"Doctor"
-specialization
-: 
-"Veterinary Behaviorists"
-_id
-: 
-"64bbde4a1182882ec3033cec" */
+    let formatedTime = `${todayDate}T${time}:00:00:000Z`
+
+    // Add a click event listener to the button
+    button.addEventListener("click", async() => {
+        console.log(formatedTime)
+        createSlots(formatedTime,doctor_data._id)
+    });
+
+    // Append the button to the container
+    timeButtonsContainer.appendChild(button);
+  });
+
+
+  async function createSlots(meeting_time,doctor_id){
+    try {
+        const response = await fetch(`${baseUrl}/doctor/addappointment`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                meeting_time,
+                doctor_id
+            })
+        });
+
+        if (response.ok) {
+            alert("Slot Created Successfully!")
+            console.log("Slot Created successfully!");
+            // Do something after successful request, e.g., show a success message
+        } else {
+            console.log("Request failed:", response.status, response.statusText);
+            // Handle error scenarios here, e.g., show an error message
+        }
+    } catch (error) {
+        console.log("An error occurred:", error);
+        // Handle any network or other errors
+    }
+  }
