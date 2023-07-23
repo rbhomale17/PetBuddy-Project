@@ -14,6 +14,7 @@ let {adminroute}=require("../Rushikesh/Backend/routes/admin")
 
 let {doctorroute}=require("../Rushikesh/Backend/routes/doctor.routes")
 let {appointmentModel} =require("../Rushikesh/Backend/models/appointmentModel")
+let { UserModel }=require("./Backend/models/user.model")
 require('dotenv').config();
 const app = express();
 app.use(express.json());
@@ -32,6 +33,7 @@ async function deleteAppointments() {
       // Delete appointments that match the condition (e.g., all appointments before the current date)
       const currentDate = new Date();
       await appointmentModel.deleteMany({meeting_time : { $lt: currentDate } });
+      await UserModel.updateMany({}, { $set: { appointments: [] } });
       console.log('Appointments deleted successfully.');
     } catch (err) {
       console.error('Error deleting appointments:', err);

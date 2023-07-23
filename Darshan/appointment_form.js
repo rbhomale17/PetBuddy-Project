@@ -11,6 +11,8 @@ async function fetchDummyData() {
       const response = await fetch(`${baseUrl}/doctor/appointments?id=${id}`);
     //   console.log(response)
       const data = await response.json();
+      let doctor__data=data.data
+      displaydoctor(doctor__data)
       return data.data.appointments
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -20,38 +22,88 @@ async function fetchDummyData() {
 // Call the fetchDummyData function and display the data
 fetchDummyData()
     .then((data) => {
-    if (data) {
+    if (data.length!==0) {
         displayData(data);
         // console.log(data)
+    }
+    else{
+        document.querySelector(".appointment_form").innerHTML="Dr.did not created any appoiintment slot yet"
     }
     })
     .catch((error) => {
     console.log('Error:', error);
     });
 
+// *****displaying doctor 
+
+   function displaydoctor(data){
+      let conntainter=document.querySelector(".doctor_display")
+      conntainter.innerHTML=`
+      <div class="doctor_display_main">
+      <div class="img_div">
+        <img src="${data.picture}" alt="">
+      </div>
+      <div>
+        <h4 class="name">Dr.${data.name}</h4>
+        <p class="specialization">${data.specialization}</p>
+        <p class="email">${data.email}</p>
+        <p class="address">${data.address}</p>
+      </div>
+     </div>
+      `
+      
+
+   }
 
 
-function displayData(data){
+// *******displaying doctor
+
+
+function displayData(data) {
     const container = document.getElementById("bookedslots");
-  
-    container.innerHTML = ""; 
+    container.innerHTML = "";
+
+    let currentselectedbutton = null; // Declare currentselectedbutton outside the loop
+
     data.forEach((el) => {
-        console.log(el._id)
-        if(!el.status){
-            let formatedTime = formatMeetingTime(`${el.meeting_time}`)
+        if (el) {
+            let formatedTime = formatMeetingTime(`${el.meeting_time}`);
             const doctorInfo = document.createElement("div");
             doctorInfo.innerHTML = `
                 <button class="book-appointment-btn" data-id="${el._id}">${formatedTime}</button>
             `;
-            doctorInfo.querySelector('.book-appointment-btn').addEventListener("click",async(event)=>{
-                event.preventDefault()
-                appointment_id=event.target.dataset.id
-                // console.log(appointment_id)
-            })
+
+            let button = doctorInfo.querySelector('.book-appointment-btn');
+
+            if (el.status === true) {
+                button.classList.add("red");
+                button.addEventListener("click", async (event) => {
+                    event.preventDefault();
+                    event.target.innerHTML = "not available";
+                });
+            } else {
+                button.addEventListener("click", async (event) => {
+                    event.preventDefault();
+                    appointment_id = event.target.dataset.id;
+                    console.log(appointment_id);
+
+                    // Reset the previous selected button color to normal
+                    if (currentselectedbutton !== null) {
+                        currentselectedbutton.classList.remove("green");
+                    }
+
+                    // Update the currentselectedbutton to the newly clicked button
+                    currentselectedbutton = event.target;
+                    currentselectedbutton.classList.add("green");
+                });
+            }
+
             container.appendChild(doctorInfo);
         }
-    })
+    });
 }
+
+
 
 function formatMeetingTime(dateString) {
     const meetingTime = new Date(dateString);
