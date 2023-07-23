@@ -1,4 +1,37 @@
 
+.dropdown {
+    display: inline-block;
+    position: relative;
+    color: rgb(2, 166, 70);
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    overflow: auto;
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content a {
+    display: block;
+    color: black;
+    padding: 5px;
+    text-decoration: none;
+    background-color: rgb(205, 250, 214);
+  }
+  
+  .dropdown-content a:hover {
+    color: black;
+    background-color: #e79d19;
+  }
+
+
+
 .doctor_display{
     margin-top: 8rem;
 }
