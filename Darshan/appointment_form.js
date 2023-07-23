@@ -121,7 +121,7 @@ function submitForm() {
         pet_type: petType,
         pet_gender: petGender,
         appointment_id:appointment_id,
-        user_id:"64bbdc2c00aae74efb8132b7"
+        user_id:user_id
     };
     console.log(formData)
     // Call the sendPutRequest function to send the form data via PUT request
@@ -151,13 +151,13 @@ async function sendPutRequest(data) {
         if (response.ok) {
             alert("Booking Accepted!")
             console.log("Data successfully sent!");
-            // Do something after successful request, e.g., show a success message
+            
         } else {
             console.log("Request failed:", response.status, response.statusText);
-            // Handle error scenarios here, e.g., show an error message
+            
         }
     } catch (error) {
         console.log("An error occurred:", error);
-        // Handle any network or other errors
+        
     }
 }

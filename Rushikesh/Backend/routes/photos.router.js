@@ -9,9 +9,9 @@ const mongo_url = process.env.mongo_url_photos;
 const dbName = process.env.dbName;
 
 
-// photoRouter.get('/', (req, res) => {
-//     res.send('hhihihihohssafbajfbj')
-// });
+photoRouter.get('/', (req, res) => {
+    res.send('welcome to Photos router')
+});
 
 // for getting image from DB after passing Image (_id)
 photoRouter.get('/files/:id', async (req, res) => {
@@ -58,7 +58,7 @@ photoRouter.post('/upload', upload.single('file'), async (req, res) => {
         // console.log(id)
         await client.close();
         // console.log(`http://localhost:3000/photos/files/${id}`)
-        res.json({ link: `https://meeteasy-main-server.onrender.com/photos/files/${result.insertedId}` });
+        res.json({ link: `http://localhost:3000/photos/files/${result.insertedId}` });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred during file upload.' });
