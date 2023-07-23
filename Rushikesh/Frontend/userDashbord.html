@@ -2,13 +2,17 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PetBuddy:Book Appointment Form</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetBuddy+/UserDashboard</title>
+
+  <meta charset="UTF-8" />
+  <meta property="og:title" content="PetBuddy.com" />
+  <link rel="stylesheet" href="./styles/userDashbord.css" />
+  <!-- favicon icon -->
   <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
-  <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
-  <link rel="stylesheet" href="./styles/doctorRenderPage.css" />
-  <link rel="stylesheet" href="./styles/appointment_form.css" />
+  <!--  -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet"
@@ -16,6 +20,8 @@
 </head>
 
 <body>
+  <!-- Navbar  Section Start -->
+
   <header>
     <a href="./userDashbord.html" class="logo"><img src="./images/logo.jpg" alt="" /></a>
 
@@ -27,7 +33,7 @@
         <!-- <a class="nav-link about" id="videoCall" href="#">About Us</a> -->
       </li>
       <li>
-        <a class="nav-link skills" id="ScreenShare" href="../Darshan/doctorRenderPage.html">Book Appointment</a>
+        <a class="nav-link skills" id="ScreenShare" href="./doctorRenderPage.html">Book Appointment</a>
       </li>
       <li>
         <a class="nav-link projects" id="Message" href="./viewAppointmentpage.html">View Appointment</a>
@@ -42,37 +48,59 @@
     </ul>
   </header>
 
-  <div class="doctor_display">
+  <!-- Navbar Section End -->
 
-  </div>
+  <!-- Main Section Start -->
 
-  <!-- form appointment -->
-  <div class="appointment_form">
-    <form id="form">
-      <fieldset>
-        <!-- <legend><span class="number">1</span>Pet's Name</legend> -->
-        <label for="gender">Pet's Type:</label>
-        <input type="text" id="pet_type" placeholder="Pet's Type" required pattern="[a-zA-Z0-9]+">
+  <section id="home">
+    <div class="home-text">
+      <span>Hello👋,</span>
+      <h1 id="user-detail-name">Yogita Mane</h1>
+      <h2>Welcome To PetBuddy+</h2>
+      <br />
+      <a onclick="logout()"><button class="resume-button" id="resume-button-2">Log out</button>
+      </a>
+    </div>
+    <div class="home-img1">
+      <div id="imageDiv">
+        <img src="" alt="yogita" />
+      </div>
+      <!-- upload new image here -->
+      <input id="fileInput" class="resume-button" type="file" name="file" accept=".png, .jpg, .jpeg, .gif" required />
+      <br />
+      <input id="uploadButton" class="resume-button" type="submit" />
+    </div>
+  </section>
 
-        <label id="lable2" for="gender">Pet's Gender:</label>
-        <select name="" id="pets_gender">
-          <option value="">Select Pet's Gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
-        <br>
-        <h3 class="todaysslot">Today's slot</h3>
-        <bookedslots id="bookedslots">
+  <!-- Main Section End -->
 
-        </bookedslots>
-      </fieldset>
+  <!-- Features Section Start -->
 
-      <button id="submit">Book the Slot</button>
-    </form>
-  </div>
+  <section id="features">
+    <div class="heading">
+      <h2>Features</h2>
+      <span>Explore PetBuddy+ Features</span>
+    </div>
+    <div class="features-content">
+      <a href="./doctorRenderPage.html">
+        <div class="skills-card">
+          <img class="features-card-img" src="./images/bookAppointmetimg.jpg" alt="html" />
+          <h4 class="features-card-name">Book Appointment</h4>
+        </div>
+      </a>
+      <a href="./viewAppointmentpage.html">
+        <div class="skills-card">
+          <img class="features-card-img" src="./images/viewAppointmentimg.jpg" alt="html" />
+          <h4 class="features-card-name">View Appointments</h4>
+        </div>
+      </a>
+    </div>
+  </section>
 
+  <!-- Features Section End -->
 
-  <!-- footer -->
+  <!-- FOOTER -->
+
   <div id="f-main">
     <footer>
       <div class="f-cont">
@@ -87,7 +115,7 @@
               <a href="#"><i class="fa fa-facebook"></i></a>
               <a href="#"><i class="fa fa-instagram"></i></a>
               <a href="#"><i class="fa fa-twitter"></i></a>
-              <a onclick="window.open('https://github.com/rbhomale17/deluxe-change-1738')"><i
+              <a onclick="window.open('https://github.com/rbhomale17/concerned-picture-9849')"><i
                   class="fa fa-github"></i></a>
             </div>
           </div>
@@ -118,7 +146,11 @@
       </div>
     </footer>
   </div>
+
+  <!-- FOOTER -->
+
+  <!-- Javascript -->
+  <script src="./scripts/userDashbord.js"></script>
 </body>
 
 </html>
-<script src="./scripts/appointment_form.js"></script>

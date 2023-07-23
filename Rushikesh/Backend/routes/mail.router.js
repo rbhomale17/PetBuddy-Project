@@ -238,7 +238,7 @@ async function sendWelcomeFromGoogleOauthEmail(email, user) {
     tokenStoreOauth[email] = { token, expiry };
 
     const resetUrl = `http://127.0.0.1:5500/Rushikesh/Frontend/resetPasswordforGoogle.html?token=${token}&email=${email}&userID=${user._id}`;
-    const appUrl = `http://127.0.0.1:5500/Rushikesh/Frontend/landing.html`
+    const appUrl = `http://127.0.0.1:5500/Rushikesh/Frontend/index.html`
     const passwordMobileReset = {
         from: process.env.NodemailerServiceMail,
         to: email,

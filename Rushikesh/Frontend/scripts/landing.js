@@ -118,6 +118,6 @@ function logout() {
 
   localStorage.removeItem('userDetails');
   localStorage.removeItem('amount');
-  location.href = 'index.html'
+  location.href = './index.html'
 
 }

@@ -132,6 +132,7 @@ async function registerUser(newUserObject) {
         alert(`${registrationData.msg}`);
         console.log(registrationData.user);
 
+
         const welcomeResponse = await fetch(`${BaseUrl}/mail/welcome-user`, {
             method: "POST",
             headers: {
@@ -145,7 +146,13 @@ async function registerUser(newUserObject) {
     } catch (error) {
         console.error("Error occurred:", error);
     }
-    localStorage.setItem('userDetails', JSON.stringify(data.user));
+    if (data.user) {
+        localStorage.setItem('userDetails', JSON.stringify(registrationData.user));
+
+    } else {
+        return;
+    }
+    // localStorage.setItem('userDetails', JSON.stringify(registrationData.user));
 
     if (registrationData.user.role == "Customer" || registrationData.user.role == "Doctor") alert(`Redirecting to ${registrationData.user.role}'s Dashboard.`), redirectToHome();
     else if (registrationData.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
@@ -154,7 +161,7 @@ async function registerUser(newUserObject) {
 // // redirecting to dashboard
 
 function redirectToHome() {
-    location.href = "/Yogita/userDashbord.html";
+    location.href = "./userDashbord.html";
 };
 function redirectToAdmin() {
     location.href = "/Rushikesh/admin/AdminDashboard.html";

@@ -59,6 +59,15 @@ app.use("/mail", MailRouter);
 app.use("/admin", adminroute);
 app.use("/doctor", doctorroute);
 
+// const moment = require('moment');
+
+// let timestamp = "2023-07-23T09:00:00.000Z"; // Note the leading zero in the hour
+// let date = moment.parseZone(timestamp).format('MMMM Do YYYY, h:mm:ss a');
+
+// console.log(date);
+
+
+
 app.listen(3000, async () => {
   try {
     await connection;

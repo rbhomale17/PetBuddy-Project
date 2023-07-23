@@ -1,5 +1,5 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
-const baseUrl="http://localhost:3000"
+const baseUrl = "http://localhost:3000"
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
 
@@ -79,26 +79,26 @@ let image = document.createElement('img');
 image.setAttribute('src', userDetails.picture);
 image.setAttribute('alt', userDetails.name);
 imageDiv.append(image);
-if(userDetails.role=="Doctor"){
-// Get the elements with the class name "features-content"
-const featuresContentElements = document.getElementsByClassName("features-content");
+if (userDetails.role == "Doctor") {
+  // Get the elements with the class name "features-content"
+  const featuresContentElements = document.getElementsByClassName("features-content");
 
-// Assuming you want to add the new child to the first element with class "features-content"
-const firstFeaturesContentElement = featuresContentElements[0];
+  // Assuming you want to add the new child to the first element with class "features-content"
+  const firstFeaturesContentElement = featuresContentElements[0];
 
-// Create the new child element
-const newChildElement = document.createElement("a");
-newChildElement.href = "../Darshan/createAppointmentpage.html";
+  // Create the new child element
+  const newChildElement = document.createElement("a");
+  newChildElement.href = "../Darshan/addingSlotDoctor.html";
 
-newChildElement.innerHTML = `
+  newChildElement.innerHTML = `
   <div class="skills-card">
     <img class="features-card-img" src="./images/createAppointmentimg.jpg" alt="html" />
     <h4 class="features-card-name">Create Appointments</h4>
   </div>
 `;
 
-// Append the new child element to the firstFeaturesContentElement
-firstFeaturesContentElement.appendChild(newChildElement);
+  // Append the new child element to the firstFeaturesContentElement
+  firstFeaturesContentElement.appendChild(newChildElement);
 }
 // // caching user data from params
 // const urlParams = new URLSearchParams(window.location.search);
@@ -124,32 +124,32 @@ window.addEventListener('load', () => {
     image.setAttribute('src', userData.picture);
     image.setAttribute('alt', userData.name);
     imageDiv.append(image);
-    if(userData.role=="Doctor"){
-// Get the elements with the class name "features-content"
-const featuresContentElements = document.getElementsByClassName("features-content");
+    if (userData.role == "Doctor") {
+      // Get the elements with the class name "features-content"
+      const featuresContentElements = document.getElementsByClassName("features-content");
 
-// Assuming you want to add the new child to the first element with class "features-content"
-const firstFeaturesContentElement = featuresContentElements[0];
+      // Assuming you want to add the new child to the first element with class "features-content"
+      const firstFeaturesContentElement = featuresContentElements[0];
 
-// Create the new child element
-const newChildElement = document.createElement("a");
-newChildElement.href = "../Darshan/addingSlotDoctor.html";
+      // Create the new child element
+      const newChildElement = document.createElement("a");
+      newChildElement.href = "../Darshan/addingSlotDoctor.html";
 
-newChildElement.innerHTML = `
+      newChildElement.innerHTML = `
   <div class="skills-card">
     <img class="features-card-img" src="./images/createAppointmentimg.jpg" alt="html" />
     <h4 class="features-card-name">Create Appointments</h4>
   </div>
 `;
 
-// Append the new child element to the firstFeaturesContentElement
-firstFeaturesContentElement.appendChild(newChildElement);
-}
+      // Append the new child element to the firstFeaturesContentElement
+      firstFeaturesContentElement.appendChild(newChildElement);
+    }
   }
 })
 function logout() {
 
   localStorage.removeItem('userDetails');
-  location.href = 'index.html'
+  location.href = './index.html'
 
 }

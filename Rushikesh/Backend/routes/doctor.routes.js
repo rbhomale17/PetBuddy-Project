@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require('uuid');
 doctorroute.get("/", async (req, res) => {
 
     try {
-        let doctorlist = await UserModel.find({role:"Doctor"})
+        let doctorlist = await UserModel.find({ role: "Doctor" })
         res.status(200).send({
             "msg": "successfully fetched",
             "data": doctorlist
@@ -24,7 +24,7 @@ doctorroute.get("/findDoctor", async (req, res) => {
     let { search } = req.query
     try {
         let data = await UserModel.find({
-            role:"Doctor",
+            role: "Doctor",
 
             $or: [{ name: { $regex: search, $options: "i" } },
             { language: { $regex: search, $options: "i" } }, {
@@ -53,6 +53,7 @@ doctorroute.post("/addappointment", async (req, res) => {
         await data.save()
 
         let user = await UserModel.findById(doctor_id);
+        console.log(user);
         user.appointments.push(data._id)
         await UserModel.findByIdAndUpdate(doctor_id, user)
 
@@ -100,7 +101,32 @@ doctorroute.get("/appointments", async (req, res) => {
         // http://localhost:3000/doctor/appointments?id=
         const { id } = req.query
         // let doctoID = "64ba719e180910c5986009dc"
-        let data = await UserModel.findById(id).populate('appointments')
+        let data = await UserModel.findById(id).populate('appointments')//.populate('doctor_id')
+        res.status(200).send({
+            "msg": "successfully fetched",
+            "data": data
+        })
+
+    } catch (error) {
+        res.status(400).send({ "msg": error.message })
+        console.log(error)
+    }
+})
+
+doctorroute.get("/userAppointments", async (req, res) => {
+    try {
+        // http://localhost:3000/doctor/appointments?id=
+        const { id } = req.query
+        // let doctoID = "64ba719e180910c5986009dc"
+        // let data = await UserModel.findById(id).populate('appointments').populate('doctor_id')
+        let data = await UserModel.findById(id)
+            .populate({
+                path: 'appointments',
+                populate: {
+                    path: 'doctor_id',
+                    model: 'user'
+                }
+            })
         res.status(200).send({
             "msg": "successfully fetched",
             "data": data

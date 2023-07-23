@@ -169,6 +169,7 @@ window.addEventListener("load", () => {
 let page = 1; ProductLimit = 4
 
 function fetchData() {
+  pagination.innerHTML = null
   fetch(`${baseUrl}/users`)
     .then((res) => res.json())
     .then((res) => {
@@ -274,6 +275,6 @@ function getCard(dataId, name, avatar, email, mobile, role, rating, price, quant
 
 function logout() {
   localStorage.removeItem('userDetails');
-  location.href = '/Yogita/index.html'
+  location.href = '/Rushikesh/Frontend/index.html'
 }
 

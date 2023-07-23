@@ -79,8 +79,9 @@ function loginUser() {
         .then((res) => res.json())
         .then((data) => {
             alert(`${data.msg}`);
+            if (data.msg == "User Not Found. Try to Register First") return;
             console.log(data.user);
-            localStorage.setItem('userDetails', JSON.stringify(data.user));
+            if (data.user) localStorage.setItem('userDetails', JSON.stringify(data.user));
 
             if (data.user.role == "Customer" || data.user.role == "Doctor") alert(`Redirecting to ${data.user.role}'s Dashboard.`), redirectToHome();
             else if (data.user.role == "Admin") alert("Redirecting to Admin Dashboard"), redirectToAdmin();
@@ -93,7 +94,7 @@ function loginUser() {
 // redirecting to dashboard
 
 function redirectToHome() {
-    location.href = "/Yogita/userDashbord.html";
+    location.href = "./userDashbord.html";
 };
 function redirectToAdmin() {
     location.href = "/Rushikesh/admin/AdminDashboard.html";

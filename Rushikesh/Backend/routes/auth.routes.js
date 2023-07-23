@@ -20,7 +20,7 @@ authRoute.get("/auth/google/callback", passport.authenticate('google', {
     user.password = undefined;
     // `https://meeteasy.netlify.app/landing.html?userdata=${encodeURIComponent(JSON.stringify(user))}`
 
-    if (user.role !== 'Admin') res.redirect(`http://127.0.0.1:5500/Yogita/userDashbord.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
+    if (user.role !== 'Admin') res.redirect(`http://127.0.0.1:5500/Rushikesh/Frontend/userDashbord.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
     else res.redirect(`http://127.0.0.1:5500/Rushikesh/admin/AdminDashboard.html?userdata=${encodeURIComponent(JSON.stringify(user))}`)
   } else {
     res.send('failed to connect')

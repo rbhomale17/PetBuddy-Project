@@ -1,0 +1,512 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  scroll-padding-top: 2rem;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+:root {
+  --main-color: #033a80;
+  --bg-color: #e9f9ef;
+  --text-color: #0f0c27;
+  --hover: hsl(260, 100%, 51%);
+  --big-font: 3.2rem;
+  --medium-font: 1.8rem;
+  --p-font: 0.941rem;
+}
+
+section {
+  padding: 30px 10%;
+}
+
+body.active {
+  --text-color: #fff;
+  border-radius: 1px solid black;
+  color: rgb(2, 166, 70);
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+.heading {
+  text-align: center;
+}
+
+.heading h2 {
+  font-size: 30px;
+}
+
+.heading span {
+  font-size: var(--p-font);
+  color: rgb(2, 166, 70);
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #27ae60;
+  padding: 13px 5%;
+  transition: 0.2s;
+  /* box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288); */
+}
+
+.logo {
+  font-size: 1.61rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.logo img {
+  width: 150%;
+
+  height: 60px;
+  margin: 0px;
+}
+
+.logo span {
+  font-size: 1.61rem;
+  font-weight: 600;
+  color: rgb(230, 23, 23);
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar a {
+  font-size: 1.1rem;
+  padding: 10px 20px;
+
+  color: white;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: black;
+}
+
+#log:hover {
+  cursor: pointer;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+  color: rgb(2, 166, 70);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  display: block;
+  color: black;
+  padding: 5px;
+  text-decoration: none;
+  background-color: rgb(205, 250, 214);
+}
+
+.dropdown-content a:hover {
+  color: black;
+  background-color: #e79d19;
+}
+
+#menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10001;
+  display: none;
+  /* border: 1px solid red; */
+}
+
+#darkmode {
+  font-size: 22px;
+  cursor: pointer;
+  background-color: #27ae60;
+}
+
+#home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  margin-top: 90px;
+  gap: 1rem;
+  /* border: 1px solid red; */
+}
+
+/* For Mobile */
+@media (max-width: 991px) {
+  header {
+    padding: 18px 4%;
+    background-color: #27ae60;
+  }
+
+  section {
+    padding: 40px 4%;
+  }
+}
+
+@media (max-width: 881px) {
+  :root {
+    --big-font: 2.7rem;
+    --medium-font: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --big-font: 2.4rem;
+    --medium-font: 1.2rem;
+  }
+
+  header {
+    padding: 11px 4%;
+    background-color: #27ae60;
+  }
+
+  #menu-icon {
+    display: initial;
+    /* border: 1px solid red; */
+  }
+
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #27ae60;
+
+    box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
+    transition: 0.2s ease;
+    text-align: center;
+  }
+
+  .navbar.active {
+    top: 100%;
+    background-color: #27ae60;
+  }
+
+  .navbar a {
+    padding: 1.5rem;
+    display: block;
+    background: #27ae60;
+  }
+
+  #darkmode {
+    position: absolute;
+    top: 1.4rem;
+    right: 2rem;
+  }
+
+  .scroll-down {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --big-font: 1.7rem;
+    --medium-font: 1.1rem;
+  }
+
+  .footer-social {
+    margin-left: 55px;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #27ae60;
+    padding: 13px 10%;
+    transition: 0.2s;
+    box-shadow: -3px -3px 7px #ffffff73, 2px 2px 5px rgba(94, 104, 121, 0.288);
+  }
+}
+
+@media screen and (min-width: 350px) and (max-width: 499px) {
+  * {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  body {
+    width: auto;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .footer-social {
+    margin-left: 0px;
+  }
+}
+
+/* <--footer part --> */
+#f-main {
+  display: flex;
+  /* border: 1px solid red; */
+  justify-content: flex-end;
+  background-color: #27ae60;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  /* margin-bottom: 40px; */
+  margin-top: 30px;
+}
+
+footer {
+  color: rgb(2, 166, 70);
+  position: relative;
+  width: 100%;
+  min-height: 350px;
+  padding: 3rem 1rem;
+}
+
+.f-cont {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.f-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.col {
+  min-width: 250px;
+  color: white;
+  font-family: poppins;
+  padding: 0 2rem;
+}
+
+.col h3 {
+  color: white;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.col h3::after {
+  content: "";
+  height: 3px;
+  width: 0;
+  background-color: #13020c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.col h3:hover::after {
+  width: 30px;
+}
+
+.col .s-media a i {
+  width: 15px;
+  color: white;
+  margin-top: 2rem;
+  margin-right: 5px;
+  transition: 0.3s ease;
+}
+
+.col .s-media a i:hover {
+  transform: scale(1.5);
+  color: #0e0108;
+}
+
+.col .link a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 5px;
+  position: relative;
+  transition: 0.3s ease;
+}
+
+.col .link a::before {
+  content: "";
+  height: 16px;
+  width: 3px;
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  background-color: #190310;
+  transition: 0.5s ease;
+  opacity: 0;
+}
+
+.col .link a:hover::before {
+  opacity: 1;
+}
+
+.col .link a:hover {
+  transform: translateX(-8px);
+  color: #140207;
+}
+
+.s-media {
+  display: flex;
+  justify-content: space-around;
+}
+
+@media (max-width: 900px) {
+  .f-row {
+    flex-direction: column;
+  }
+
+  .col {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 25px;
+  }
+}
+
+/* /////////////// */
+
+#data-container {
+  /* margin-top: 10%; */
+  width: 70%;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 2rem;
+  grid-gap: 5rem;
+  /* margin: auto; */
+  /* 
+  border: 1px solid red; */
+}
+
+.main {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+}
+
+#view {
+  margin-top: 10%;
+  color: #e79d19;
+  text-align: center;
+  /* border-radius: 1px solid red; */
+}
+
+#data-container>div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  background-color: white;
+  /* justify-content: center; */
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#data-container div {
+  position: relative;
+  /* This makes the div a context for absolute positioning */
+  min-height: 520px;
+  /* Just for demonstration */
+  border: 1px solid black;
+  /* Just for demonstration */
+  margin-bottom: 10px;
+  /* Just for demonstration */
+}
+
+.view-appointment-btn {
+  position: absolute;
+  bottom: 10px;
+  /* Adjust this value as needed */
+  margin: 5px;
+  /* Adjust this value as needed */
+}
+
+#data-container>div button {
+  /* padding: 5px; */
+  background-color: #e79d19;
+  width: 35%;
+  margin-left: 25%;
+  /* border: 1px solid red; */
+  border: none;
+  border-radius: 10px;
+  padding: 7px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+#data-container>div img {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+  #data-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #view {
+    margin-top: 25%;
+  }
+}
+
+@media (max-width: 400px) {
+  #data-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  #view {
+    margin-top: 25%;
+  }
+}
