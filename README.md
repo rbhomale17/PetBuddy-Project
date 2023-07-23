@@ -12,8 +12,6 @@
 
 **_Team Member-2 & Student Code_** : **_Sourabh K T ( fw23_0477 ) https://github.com/sourabhkt1997_**
 
-**_Team Member-3 & Student Code_** : **_Sumita Mahato ( fw22_0582 ) https://github.com/Sumitamahato_**
-
 **_Team Member-4 & Student Code_** : **_Yogita Mane ( fw24_538 ) https://github.com/Yogita2021_**
 
 **_IA Manager: Pankaj kandpal https://github.com/PankajkandpalL_**
@@ -28,7 +26,7 @@
 
 **Database:** MongoDB | Redis
 
-**npm packages:** WebRTC | Socket.io | Bcrypt | PassPort | cors | JWT | dotenv | nodemailer | mongoose | express
+**npm packages:** bcrypt | cookie-parser | cors | dotev | express | jsonwebtoken | mongodb | mongoose | multer | passport|passport-google-oauth20 |uuid | uuidv4
 
 **github:** To maintain repository and collabration and version control.
 
@@ -36,45 +34,80 @@
 
 **Google Chrome :** To check the functionality and run the code.
 
+# Getting Started
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install
+  ```
+
+### Installation
+
+1. Clone the repo
+
+   ```sh
+   git clone https://github.com/faizansk814/melted-lace-627.git
+   ```
+
+2. Run api only
+   ```sh
+   npm start
+   ```
+3. Run Notification only
+
+```sh
+start:notification": "nodemon notification.js
+```
+
+5.  Run api and notification concurrently
+
+```sh
+npm run start:both
+```
+
+6.  Open http://localhost:8080 to backend run in the browser
+
 ## Frontend Part
 
 - Home Page
 - Login/Signup
-- Dashboard
 - Google OAuth
-- Payment Page
+- Dashboard Page
+- Book Appointment Page
+- View Appointment Page
+- Create Appointment Page
 - Admin Page
 
 ## Backend Part
 
 - Authentication using JWT
 - implementation using Socket.io
-- fully functional Video and Audio icons
+- Adminn functionality
 
 ## Database
 
 - MongoDB
-- Redis
 
 ## Features
 
-- Chatting
-- Video Calling
+- Book Appointment
+- Create Appointment
+- View Appointment
+- Online consult
 
 ## Application Guide to use features
 
-### To use {Video calling} feature -->
+### To use {Online Consult} feature -->
 
-- First Create room
-- User can join the call by using the room ID
+- First Create Meeting Slot
+- User can join the call by using the Online Consult Button
 - To end the call click on hang on button
 
-### To use {Chat} feature -->
+### To use {Book Appointment} feature -->
 
-- First Create room
-- User can join the room using room ID after login
-- Time is displayed of message
-- Notifies User info
+- User can Book Appointment using One form
 
 <br>
 
@@ -82,22 +115,32 @@
 
 ![Screenshot (719)](./Client/Images/indexPage.png)
 
+![Screenshot (719)](./Client/Images/indexPage.png)
+
 ## Signing Page
 
 ![Screenshot (722)](./Client/Images/signUpLogin.png)
 
-## Dashboard Page
+## User Dashboard Page
 
 ![Screenshot](./Client/Images/dashbordPage.png)
 
-## Video Chat Platform
+## Admin Dashboard Page
+
+![Screenshot](./Client/Images/dashbordPage.png)
+
+## Book Appointment Page
 
 ![Screenshot](./Client/Images/videoRoom.png)
 
-## Chat Platform
+## View Appointment Page
 
 ![Screenshot](./Client/Images/chat.png)
 
-## Admin Dashboard Page
+## Create Appointment Page
+
+![Screenshot](./Client/Images/chat.png)
+
+## Admin Page
 
 ![Screenshot](./Client/Images/adminDashboard.png)
