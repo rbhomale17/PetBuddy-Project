@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetBuddy:Book Appointment Form</title>
+  <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
+  <link rel="icon" type="image/x-icon" href="./images/logo.jpg" />
+  <link rel="stylesheet" href="./styles/doctorRenderPage.css" />
+  <link rel="stylesheet" href="./styles/appointment_form.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="./userDashbord.html" class="logo"><img src="./images/logo.jpg" alt="" /></a>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+
+    <ul class="navbar" id="nav-menu">
+      <!-- <li><a class="nav-link home" href="#">Shop</a></li> -->
+      <li>
+        <!-- <a class="nav-link about" id="videoCall" href="#">About Us</a> -->
+      </li>
+      <li>
+        <a class="nav-link skills" id="ScreenShare" href="./doctorRenderPage.html">Book Appointment</a>
+      </li>
+      <li>
+        <a class="nav-link projects" id="Message" href="./viewAppointmentpage.html">View Appointment</a>
+      </li>
+      <div class="dropdown">
+        <a href="#" id="sign-in"><i class="fa fa-user"></i>
+          <span id="username">sign-up/Log-in</span></a>
+        <div class="dropdown-content">
+          <a id="log" onclick="logout()">Log out</a>
+        </div>
+      </div>
+    </ul>
+  </header>
+
+  <div class="doctor_display">
+
+  </div>
+
+  <!-- form appointment -->
+  <div class="appointment_form">
+    <form id="form">
+      <fieldset>
+        <!-- <legend><span class="number">1</span>Pet's Name</legend> -->
+        <label for="gender">Pet's Type:</label>
+        <input type="text" id="pet_type" placeholder="Pet's Type" required pattern="[a-zA-Z0-9]+">
+
+        <label id="lable2" for="gender">Pet's Gender:</label>
+        <select name="" id="pets_gender">
+          <option value="">Select Pet's Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+        <br>
+        <h3 class="todaysslot">Today's slot</h3>
+        <bookedslots id="bookedslots">
+
+        </bookedslots>
+      </fieldset>
+
+      <button id="submit">Book the Slot</button>
+    </form>
+  </div>
+
+
+  <!-- footer -->
+  <div id="f-main">
+    <footer>
+      <div class="f-cont">
+        <div class="f-row">
+          <div class="col" id="about">
+            <h3>About Us</h3>
+            <p>
+              Introducing our PetBuddy consultation platform from where you
+              can book appointment of pet doctor for your pet.
+            </p>
+            <div class="s-media">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a onclick="window.open('https://github.com/rbhomale17/concerned-picture-9849')"><i
+                  class="fa fa-github"></i></a>
+            </div>
+          </div>
+          <div class="col" id="company">
+            <h3>OUR COMPANY</h3>
+            <div class="link">
+              <a href="#">About Us</a>
+              <a href="#">Contact Us</a>
+            </div>
+          </div>
+          <div class="col" id="category">
+            <h3>TOP CATEGORIES</h3>
+            <div class="link">
+              <a href="#">Consulting</a>
+              <a href="#">Virtual Consulting</a>
+              <a href="#">Book Appointment</a>
+            </div>
+          </div>
+          <div class="col" id="policy">
+            <h3>POLICIES & INFO</h3>
+            <div class="link">
+              <a href="#">Privacy Policy</a>
+              <a href="#">SUPPORT</a>
+              <a href="#">For Help, email to care@petBuddy.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
+<script src="./scripts/appointment_form.js"></script>

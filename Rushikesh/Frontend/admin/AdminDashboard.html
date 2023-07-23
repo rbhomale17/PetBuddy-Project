@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetBuddy-AdminDashboard</title>
+    <link rel="icon" href="./PetBuddy+-2.png" type="image/icon type">
+    <meta charset="UTF-8">
+    <meta property="og:title" content="PetBuddy.com">
+    <link rel="stylesheet" href="./styles/AdminDashboard.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+    <!-- Navbar  Section Start -->
+
+    <header>
+        <a href="./AdminDashboard.html" class="logo"><img src="./PetBuddy+-2.png" alt="" /></a>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+        <ul class="navbar" id="nav-menu">
+            <li><a class="nav-link home" href="./DoctorSignup.html">Doctor Registration</a></li>
+            <li>
+                <a class="nav-link about" id="videoCall" href="./AdminSignup.html">Admin Registration</a>
+            </li>
+            <!-- <li>
+                <a class="nav-link skills" id="ScreenShare" href="#">Medicines</a>
+            </li>
+            <li>
+                <a class="nav-link projects" id="Message" href="#">Consult</a>
+            </li> -->
+            <div class="dropdown">
+                <a href="#" id="sign-in"><i class="fa fa-user"></i>
+                    <span id="username">sign-up/Log-in</span></a>
+                <div class="dropdown-content">
+                    <a id="log" onclick="logout()">Log out</a>
+                </div>
+            </div>
+        </ul>
+    </header>
+
+    <!-- Navbar Section End -->
+
+    <!-- Main Section Start -->
+
+    <section id="home">
+        <div class="home-text">
+            <span>Hello👋,</span>
+            <h1 id="user-detail-name"></h1>
+            <h2>Welcome To PetBuddy+ Admin Dashboard</h2>
+            <br />
+            <a onclick="logout()"><button class="resume-button" id="resume-button-2">Log out</button>
+            </a>
+        </div>
+        <div class="home-img1">
+            <div id="imageDiv">
+                <img src="" alt="user_Image">
+            </div>
+            <!-- upload new image here -->
+            <input id="fileInput" class="resume-button" type="file" name="file" accept=".png, .jpg, .jpeg, .gif"
+                required>
+            <br>
+            <input id="uploadButton" class="resume-button" type="submit">
+        </div>
+    </section>
+
+    <!-- Main Section End -->
+
+    <!-- Features Section Start -->
+
+    <!-- <section id="features">
+        <div class="heading">
+            <h2>Features</h2>
+            <span>Explore MeetEasy Features</span>
+        </div>
+        <div class="features-content">
+            <a href="./chat-message-F/index.html">
+                <div class="skills-card">
+                    <img class="features-card-img" src="/PetBuddy+-2.png" alt="html" />
+                    <h4 class="features-card-name">Message</h4>
+                </div>
+            </a>
+            <a href="https://nxm201-video-server.onrender.com">
+                <div class="skills-card">
+                    <img class="features-card-img" src="/PetBuddy+-2.png" alt="html" />
+                    <h4 class="features-card-name">Video Call</h4>
+                </div>
+            </a>
+            <a href="room.html">
+                <div class="skills-card">
+                    <img class="features-card-img" src="/PetBuddy+-2.png" alt="html" />
+                    <h4 class="features-card-name">Screen Share</h4>
+                </div>
+            </a>
+        </div>
+    </section> -->
+
+    <!-- Features Section End -->
+
+    <hr id="Stats">
+    <hr>
+    <hr>
+    <h2 style="background-color: #27AE60; color: #fff;" id="Stat">All Statastics About PetBuddy+</h2>
+    <hr>
+    <hr>
+    <hr>
+    <div id="outer">
+        <div id="checkout-information">
+            <div class="dashboard">
+                <h1><i class="fa-solid fa-users" style="color: #1347c1;"></i></h1>
+                <h3>Total Users</h3>
+                <h3 id="allUsers">0</h3>
+            </div>
+        </div>
+        <div id="checkout-information">
+            <div class="dashboard">
+                <h1><i class="fa-solid fa-users" style="color: #32e290;"></i></h1>
+                <h3>Admin Users</h3>
+                <h3 id="admin">0</h3>
+            </div>
+        </div>
+        <div id="checkout-information">
+            <div class="dashboard">
+                <h1><i class="fa-solid fa-users" style="color: #32e290;"></i></h1>
+                <h3>Doctor Users</h3>
+                <h3 id="doctor">0</h3>
+            </div>
+        </div>
+        <div id="checkout-information">
+            <div class="dashboard">
+                <h1><i class="fa-solid fa-users" style="color: #030e21;"></i></h1>
+                <h3>customers</h3>
+                <h3 id="customer">0</h3>
+            </div>
+        </div>
+    </div>
+    <div>
+        <hr>
+        <hr>
+        <hr>
+    </div>
+    <hr>
+
+    <h2 style="background-color: #27AE60; color: #fff;" id="Stat">All Users Details</h2>
+    <hr>
+    <hr>
+    <hr>
+    <div id="dashboard">
+        <div id="container">
+            <form id="deleteProduct">
+                <h3>Delete Any User</h3>
+                <div class="input-group">
+                    <label style="margin-right: 15px;">Product ID</label>
+                    <input type="text" id="deleteID" required placeholder="Enter Product ID">
+                </div>
+                <button id="Submit">Submit</button>
+            </form>
+        </div>
+        <div id="product-container">
+        </div>
+    </div>
+    <div id="pagination">
+        <!-- pagination here -->
+    </div>
+
+    <!-- FOOTER -->
+
+    <div id="f-main">
+        <footer>
+            <div class="f-cont">
+                <div class="f-row">
+                    <div class="col" id="about">
+                        <h3>About Us</h3>
+                        <p>
+                            Introducing our PetBuddy consultation platform from where you
+                            can book appointment of pet doctor for your pet.
+                        </p>
+                        <div class="s-media">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a onclick="window.open('https://github.com/rbhomale17/concerned-picture-9849')"><i
+                                    class="fa fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="col" id="company">
+                        <h3>OUR COMPANY</h3>
+                        <div class="link">
+                            <a href="#">About Us</a>
+                            <a href="#">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="col" id="category">
+                        <h3>TOP CATEGORIES</h3>
+                        <div class="link">
+                            <a href="#">Consulting</a>
+                            <a href="#">Virtual Consulting</a>
+                            <a href="#">Book Appointment</a>
+                        </div>
+                    </div>
+                    <div class="col" id="policy">
+                        <h3>POLICIES & INFO</h3>
+                        <div class="link">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">SUPPORT</a>
+                            <a href="#">For Help, email to care@petBuddy.com</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FOOTER -->
+
+    <!-- Javascript -->
+    <script src="./scripts/AdminDashboard.js"></script>
+</body>
+
+</html>

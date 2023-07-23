@@ -59,6 +59,8 @@
 
 3. Open http://localhost:3000 to backend run in the browser
 
+4. video server link : https://petbuddy-video-server.onrender.com/
+
 ## Frontend Part
 
 - Home Page

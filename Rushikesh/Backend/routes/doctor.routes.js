@@ -4,6 +4,7 @@ let doctorroute = express.Router()
 let { UserModel } = require("../models/user.model")
 let { appointmentModel } = require("../models/appointmentModel")
 const { v4: uuidv4 } = require('uuid');
+const { sendAppointmentConfirmationMail } = require("./mail.router");
 
 
 
@@ -85,6 +86,15 @@ doctorroute.post("/addUserToAppointment", async (req, res) => {
         user.appointments.push(appointment_id)
         await UserModel.findByIdAndUpdate(user_id, user)
 
+        let details = await UserModel.findById(user_id)
+            .populate({
+                path: 'appointments',
+                populate: {
+                    path: 'doctor_id',
+                    model: 'user'
+                }
+            });
+        sendAppointmentConfirmationMail(details, details.appointments[details.appointments.length - 1].doctor_id)
         res.status(200).send({
             "msg": "Slot Booked Successfully",
             "data": user

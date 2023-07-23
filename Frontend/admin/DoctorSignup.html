@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/signup.css">
+  <title>PetBuddy-DoctorRegistration</title>
+  <link rel="icon" href="/PetBuddy+-2.png" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta property="og:title" content="PetBuddy.com">
+  <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap">
+</head>
+<style>
+  #login {
+    margin-top: 30px;
+  }
+</style>
+
+<body>
+  <div class="container">
+    <form>
+      <i class="fa-solid fa-user-plus"></i>
+
+      <!-- <div class="input-group">
+        <label>First Name</label>
+        <input onkeyup="validationFirstName()" type="text" id="username" placeholder="Enter username">
+        <span id="firstname-error"></span>
+      </div> -->
+      <!-- address -->
+      <!-- language -->
+      <!-- specialization -->
+      <div class="input-group">
+        <label>Name</label>
+        <input onkeyup="validationFirstName()" type="text" id="name" placeholder="Enter Your Name">
+        <span id="firstname-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Language</label>
+        <select id="language" name="language">
+          <option value="Hindi">Hindi</option>
+          <option value="English">English</option>
+          <option value="Malayalam">Malayalam</option>
+          <option value="Marathi">Marathi</option>
+        </select>
+        <!-- <input onkeyup="validationFirstName()" type="text" id="name" placeholder="Enter Your Name"> -->
+        <span id="language-error"><i class="fas fa-check-circle"></i></span>
+      </div>
+
+      <div class="input-group">
+        <label>Email Id</label>
+        <input onkeyup="validationEmail()" type="email" id="email" placeholder="Enter Your Email">
+        <span id="email-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Mobile</label>
+        <input onkeyup="validationMobile()" type="tel" placeholder="Enter Your Mobile" id="mobile">
+        <span id="mobile-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Address :</label>
+        <input onkeyup="validationAddress()" type="text" id="address" placeholder="Enter Your Address">
+        <span id="address-error"></span>
+      </div>
+
+      <div class="input-group">
+        <label>Specilization</label>
+        <select name="" id="specialization">
+          <!-- <option value="">Select Specilization</option> -->
+          <option value="Veterinary Nutrition">Veterinary Nutrition</option>
+          <option value="Veterinary Pathology">Veterinary Pathology</option>
+          <option value="Veterinary Sports Animals">Veterinary Sports Animals</option>
+          <option value="Veterinary Behaviorists">Veterinary Behaviorists</option>
+          <option value="Veterinary Dentistry">Veterinary Dentistry</option>
+          <option value="Veterinary Dermatology">Veterinary Dermatology</option>
+          <!-- <input onkeyup="validationFirstName()" type="text" id="name" placeholder="Enter Your Name"> -->
+        </select>
+
+        <span id="specialization-error"><i class="fas fa-check-circle"></i></span>
+      </div>
+
+      <div class="input-group">
+        <label>Password</label>
+        <input onkeyup="validationPassword()" type="password" id="password" placeholder="Enter Your Password">
+        <span id="password-error"></span>
+      </div>
+      <button id="Submit">Submit</button>
+      <span id="submit-error"></span>
+    </form>
+    <div>
+
+    </div>
+  </div>
+</body>
+<script src="./scripts/DoctorSignup.js"></script>
+
+</html>

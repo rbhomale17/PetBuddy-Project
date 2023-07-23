@@ -31,15 +31,15 @@ app.use(cookieParser());
 // *************************
 const cron = require("node-cron");
 async function deleteAppointments() {
-    try {
-      // Delete appointments that match the condition (e.g., all appointments before the current date)
-      const currentDate = new Date();
-      await appointmentModel.deleteMany({meeting_time : { $lt: currentDate } });
-      await UserModel.updateMany({}, { $set: { appointments: [] } });
-      console.log('Appointments deleted successfully.');
-    } catch (err) {
-      console.error('Error deleting appointments:', err);
-    }
+  try {
+    // Delete appointments that match the condition (e.g., all appointments before the current date)
+    const currentDate = new Date();
+    await appointmentModel.deleteMany({ meeting_time: { $lt: currentDate } });
+    await UserModel.updateMany({}, { $set: { appointments: [] } });
+    console.log('Appointments deleted successfully.');
+  } catch (err) {
+    console.error('Error deleting appointments:', err);
+  }
 }
 
 // Schedule the task to run at 12 AM daily
@@ -48,7 +48,7 @@ cron.schedule("0 0 * * *", () => {
 });
 
 app.get('/', (req, res) => {
-    res.send('welcome to PetBuddy+ server')
+  res.send('welcome to PetBuddy+ server')
 })
 
 app.use("/", authRoute);
