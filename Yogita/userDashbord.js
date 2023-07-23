@@ -133,7 +133,7 @@ const firstFeaturesContentElement = featuresContentElements[0];
 
 // Create the new child element
 const newChildElement = document.createElement("a");
-newChildElement.href = "../Darshan/createAppointmentpage.html";
+newChildElement.href = "../Darshan/addingSlotDoctor.html";
 
 newChildElement.innerHTML = `
   <div class="skills-card">
