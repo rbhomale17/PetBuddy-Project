@@ -24,9 +24,9 @@
 
 **Server:** Node.js | Express.js
 
-**Database:** MongoDB | Redis
+**Database:** MongoDB
 
-**npm packages:** bcrypt | cookie-parser | cors | dotev | express | jsonwebtoken | mongodb | mongoose | multer | passport|passport-google-oauth20 |uuid | uuidv4
+**npm packages:** bcrypt | cookie-parser | cors | dotev | express | jsonwebtoken | mongodb | mongoose | multer | passport | passport-google-oauth20 | uuid | uuidv4
 
 **github:** To maintain repository and collabration and version control.
 
@@ -48,26 +48,16 @@
 1. Clone the repo
 
    ```sh
-   git clone https://github.com/faizansk814/melted-lace-627.git
+   git clone https://github.com/rbhomale17/concerned-picture-9849.git
    ```
 
 2. Run api only
+
    ```sh
    npm start
    ```
-3. Run Notification only
 
-```sh
-start:notification": "nodemon notification.js
-```
-
-5.  Run api and notification concurrently
-
-```sh
-npm run start:both
-```
-
-6.  Open http://localhost:8080 to backend run in the browser
+3. Open http://localhost:3000 to backend run in the browser
 
 ## Frontend Part
 
@@ -83,8 +73,8 @@ npm run start:both
 ## Backend Part
 
 - Authentication using JWT
-- implementation using Socket.io
-- Adminn functionality
+- Implementation of online consultation
+- Admin functionality
 
 ## Database
 
@@ -95,11 +85,11 @@ npm run start:both
 - Book Appointment
 - Create Appointment
 - View Appointment
-- Online consult
+- Online consultation
 
 ## Application Guide to use features
 
-### To use {Online Consult} feature -->
+### To use {Online Consultation} feature -->
 
 - First Create Meeting Slot
 - User can join the call by using the Online Consult Button
@@ -107,7 +97,7 @@ npm run start:both
 
 ### To use {Book Appointment} feature -->
 
-- User can Book Appointment using One form
+- User can Book Appointment using form
 
 <br>
 
