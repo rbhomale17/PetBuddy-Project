@@ -51,29 +51,34 @@
           </div>
         </ul>
       </header>
+
+      <div class="doctor_display">
+
+      </div>
       
       <!-- form appointment -->
       <div class="appointment_form">
         <form id="form" >
             <fieldset>
-              <legend><span class="number">1</span>Pet's Name</legend>
+              <!-- <legend><span class="number">1</span>Pet's Name</legend> -->
               <label for="gender">Pet's Type:</label>
               <input type="text" id="pet_type" placeholder="Pet's Type" required
                 pattern="[a-zA-Z0-9]+">
               
-              <label for="gender">Pet's Gender:</label>
+              <label id="lable2" for="gender">Pet's Gender:</label>
               <select name="" id="pets_gender">
                 <option value="">Select Pet's Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
               <br>
+              <h3 class="todaysslot">Today's slot</h3>
               <bookedslots id="bookedslots">
 
               </bookedslots>
             </fieldset>
     
-            <button id="submit" >Book</button>
+            <button id="submit" >Book the Slot</button>
           </form>
       </div>
       
