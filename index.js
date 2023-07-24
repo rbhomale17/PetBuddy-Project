@@ -29,22 +29,8 @@ app.use(cookieParser());
 // app.use(express.static(staticFilesDir));
 
 // *************************
-// const cron = require("node-cron");
-// const { UserModel } = require("./Backend/models/user.model");
-// async function deleteAppointments() {
-//   try {
-//     // Delete appointments that match the condition (e.g., all appointments before the current date)
-//     const currentDate = new Date();
-//     await appointmentModel.deleteMany({ meeting_time: { $lt: currentDate } });
-//     await UserModel.updateMany({}, { $set: { appointments: [] } });
-//     console.log('Appointments deleted successfully.');
-//   } catch (err) {
-//     console.error('Error deleting appointments:', err);
-//   }
-// }
 const cron = require("node-cron");
 const { UserModel } = require("./Backend/models/user.model");
-
 async function deleteAppointments() {
   try {
     // Delete appointments that match the condition (e.g., all appointments before the current date)
@@ -56,19 +42,33 @@ async function deleteAppointments() {
     console.error('Error deleting appointments:', err);
   }
 }
+// const cron = require("node-cron");
+// const { UserModel } = require("./Backend/models/user.model");
+
+// async function deleteAppointments() {
+//   try {
+//     // Delete appointments that match the condition (e.g., all appointments before the current date)
+//     const currentDate = new Date();
+//     await appointmentModel.deleteMany({ meeting_time: { $lt: currentDate } });
+//     await UserModel.updateMany({}, { $set: { appointments: [] } });
+//     console.log('Appointments deleted successfully.');
+//   } catch (err) {
+//     console.error('Error deleting appointments:', err);
+//   }
+// }
 
 // Convert the cron schedule from India time to Singapore time
-const singaporeCronSchedule = "30 23 * * *"; // 2:30 AM in Singapore timezone
+const singaporeCronSchedule = "01 23 * * *"; // 2:30 AM in Singapore timezone
 
 // Schedule the task to run at 2:30 AM daily in the India timezone (IST)
-cron.schedule(singaporeCronSchedule, () => {
-  deleteAppointments();
-});
-
-// Schedule the task to run at 12 AM daily
-// cron.schedule("0 0 * * *", () => {
+// cron.schedule(singaporeCronSchedule, () => {
 //   deleteAppointments();
 // });
+
+// Schedule the task to run at 12 AM daily
+cron.schedule("0 0 * * *", () => {
+  deleteAppointments();
+});
 
 app.get('/', (req, res) => {
   // res.send('Appointments deletion triggered successfully.');
@@ -78,7 +78,7 @@ app.get('/', (req, res) => {
 // const cron = require('node-cron');
 const axios = require('axios'); // If you're using Axios for HTTP requests, otherwise use your preferred HTTP library
 
-cron.schedule('20 1 * * *', async () => {
+cron.schedule(singaporeCronSchedule, async () => {
   try {
     // Make a DELETE request to the /delete endpoint of your backend
     const response = await axios.get('https://petbuddy-main-server.onrender.com/delete');
