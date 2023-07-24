@@ -28,11 +28,11 @@
 
 **npm packages:** bcrypt | cookie-parser | cors | dotev | express | jsonwebtoken | mongodb | mongoose | multer | passport | passport-google-oauth20 | uuid | uuidv4
 
-**github:** To maintain repository and collabration and version control.
+**GitHub:** To maintain repository and collaboration and version control.
 
-**VS Code:** To write HTML,CSS and JavaScript code.
+**VS Code:** To write HTML, CSS, and JavaScript code.
 
-**Google Chrome :** To check the functionality and run the code.
+**Google Chrome:** To check the functionality and run the code.
 
 # Getting Started
 
@@ -51,7 +51,7 @@
    git clone https://github.com/rbhomale17/concerned-picture-9849.git
    ```
 
-2. Run api only
+2. Run API only
 
    ```sh
    npm start
@@ -59,7 +59,11 @@
 
 3. Open http://localhost:3000 to backend run in the browser
 
-4. video server link : https://petbuddy-video-server.onrender.com/
+4. Video Server Deployed Link:- https://petbuddy-video-server.onrender.com/
+   
+5. Frontend Deployed Link:- https://petbuddy.netlify.app/
+
+6. Backend Deployed Link:- https://petbuddy-main-server.onrender.com/
 
 ## Frontend Part
 
@@ -68,8 +72,8 @@
 - Google OAuth
 - Dashboard Page
 - Book Appointment Page
-- View Appointment Page
-- Create Appointment Page
+- View the Appointment Page
+- Create an Appointment Page
 - Admin Page
 
 ## Backend Part
@@ -95,11 +99,11 @@
 
 - First Create Meeting Slot
 - User can join the call by using the Online Consult Button
-- To end the call click on hang on button
+- To end the call click on the leave-meeting button
 
 ### To use {Book Appointment} feature -->
 
-- User can Book Appointment using form
+- Users can Book an Appointment using the form
 
 <br>
 
