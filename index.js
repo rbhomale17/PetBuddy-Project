@@ -29,8 +29,22 @@ app.use(cookieParser());
 // app.use(express.static(staticFilesDir));
 
 // *************************
+// const cron = require("node-cron");
+// const { UserModel } = require("./Backend/models/user.model");
+// async function deleteAppointments() {
+//   try {
+//     // Delete appointments that match the condition (e.g., all appointments before the current date)
+//     const currentDate = new Date();
+//     await appointmentModel.deleteMany({ meeting_time: { $lt: currentDate } });
+//     await UserModel.updateMany({}, { $set: { appointments: [] } });
+//     console.log('Appointments deleted successfully.');
+//   } catch (err) {
+//     console.error('Error deleting appointments:', err);
+//   }
+// }
 const cron = require("node-cron");
 const { UserModel } = require("./Backend/models/user.model");
+
 async function deleteAppointments() {
   try {
     // Delete appointments that match the condition (e.g., all appointments before the current date)
@@ -43,15 +57,48 @@ async function deleteAppointments() {
   }
 }
 
-// Schedule the task to run at 12 AM daily
-cron.schedule("0 0 * * *", () => {
+// Convert the cron schedule from India time to Singapore time
+const singaporeCronSchedule = "30 23 * * *"; // 2:30 AM in Singapore timezone
+
+// Schedule the task to run at 2:30 AM daily in the India timezone (IST)
+cron.schedule(singaporeCronSchedule, () => {
   deleteAppointments();
 });
 
+// Schedule the task to run at 12 AM daily
+// cron.schedule("0 0 * * *", () => {
+//   deleteAppointments();
+// });
+
 app.get('/', (req, res) => {
+  // res.send('Appointments deletion triggered successfully.');
   res.send('welcome to PetBuddy+ server')
 })
 
+// const cron = require('node-cron');
+const axios = require('axios'); // If you're using Axios for HTTP requests, otherwise use your preferred HTTP library
+
+cron.schedule('20 1 * * *', async () => {
+  try {
+    // Make a DELETE request to the /delete endpoint of your backend
+    const response = await axios.get('http://localhost:3000/delete');
+
+    // Handle the response, if needed
+    console.log('Delete request success:', response.data);
+  } catch (error) {
+    // Handle errors, if any
+    console.error('Error invoking delete endpoint:', error.message);
+  }
+});
+app.get('/delete', async(req, res) => {
+  try {
+    console.log('hii');
+    await deleteAppointments();
+    res.send('Appointments deletion triggered successfully.');
+  } catch (err) {
+    res.status(500).send('Error triggering appointments deletion.');
+  }
+});
 app.use("/", authRoute);
 app.use("/photos", photoRouter);
 app.use("/users", userRouter);
