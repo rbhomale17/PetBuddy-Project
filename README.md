@@ -2,7 +2,7 @@
 
 # **_Project Code:- concerned-picture-9849_**
 
-# **_Project Purpose:- Purpose goes here_**
+# **_Project Purpose:- Introducing our PetBuddy consultation platform from where you can book appointment of pet doctor for your pet._**
 
 ############################### **_Project Members_** #######################################
 
