@@ -58,7 +58,7 @@ async function deleteAppointments() {
 // }
 
 // Convert the cron schedule from India time to Singapore time
-const singaporeCronSchedule = "01 23 * * *"; // 2:30 AM in Singapore timezone
+const singaporeCronSchedule = "41 1 * * *"; // 2:30 AM in Singapore timezone
 
 // Schedule the task to run at 2:30 AM daily in the India timezone (IST)
 // cron.schedule(singaporeCronSchedule, () => {
