@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>PetBuddy-Video Main</title>
+  <link rel="icon" href="logo.png" type="image/icon type">
+  <meta charset="UTF-8">
+  <meta property="og:title" content="PetBuddy.com">
+  <meta name="description" content="Instant video meetings are just one click away !!">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="door.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@5/dark.css" />
+  <script src="https://kit.fontawesome.com/6510466b6c.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/714346974b.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <!-- Navbar  Section Start -->
+
+  <header>
+    <a href="#" class="logo"><img src="logo.png" alt="" /></a>
+
+    <div class="bx bx-menu" id="menu-icon"></div>
+
+    <ul class="navbar" id="nav-menu">
+      <!-- <li><a class="nav-link home" href="#">Shop</a></li> -->
+      <li>
+        <!-- <a class="nav-link about" id="videoCall" href="#">About Us</a> -->
+      </li>
+      <li>
+        <a class="nav-link skills" id="ScreenShare" href="#">Book Appointment</a>
+      </li>
+      <li>
+        <a class="nav-link projects" id="Message" href="#">View Appointment</a>
+      </li>
+      <!-- <div class="dropdown">
+        <a href="./signup.html" id="sign-in"><i class="fa fa-user"></i>
+          <span id="username">sign-up/Log-in</span></a>
+
+      </div> -->
+    </ul>
+  </header>
+
+  <div class="room_container">
+    <div class="main">
+      <div class="create-join">
+        <div class="text">
+          <div class="head"></div>
+          <div class="subtext">Try Video Calling</div>
+        </div>
+        <button id="createroom" class="createroom-butt unselectable">New Meeting</button><br>
+        <input type="text" name="room" spellcheck="false" placeholder="Enter a Code" id="roomcode" class="roomcode"><br>
+        <div class="joinroom unselectable" id="joinroom">Join Meeting</div>
+      </div>
+    </div>
+  </div>
+  <!-- FOOTER -->
+
+  <div id="f-main">
+    <footer>
+      <div class="f-cont">
+        <div class="f-row">
+          <div class="col" id="about">
+            <h3>About Us</h3>
+            <p>
+              Introducing our PetBuddy consultation platform from where you
+              can book appointment of pet doctor for your pet.
+            </p>
+            <div class="s-media">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a onclick="window.open('https://github.com/rbhomale17/concerned-picture-9849')"><i
+                  class="fa fa-github"></i></a>
+            </div>
+          </div>
+          <div class="col" id="company">
+            <h3>OUR COMPANY</h3>
+            <div class="link">
+              <a href="#teamY">About Us</a>
+              <a href="#teamY">Contact Us</a>
+            </div>
+          </div>
+          <div class="col" id="category">
+            <h3>TOP CATEGORIES</h3>
+            <div class="link">
+              <a href="#">Consulting</a>
+              <a href="#">Virtual Consulting</a>
+              <a href="#">Book Appointment</a>
+            </div>
+          </div>
+          <div class="col" id="policy">
+            <h3>POLICIES & INFO</h3>
+            <div class="link">
+              <a href="#">Privacy Policy</a>
+              <a href="#">SUPPORT</a>
+              <a href="#">For Help, email to care@petBuddy.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- FOOTER -->
+  <script language="JavaScript">
+    window.onload = function () {
+      var mobile = (/iphone|ipad|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));
+      if (mobile) {
+        alert("Visit this on a Computer/laptop for BETTER VIEW");
+      }
+    }
+  </script>
+
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="door.js"></script>
