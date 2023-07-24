@@ -30,6 +30,7 @@ app.use(cookieParser());
 
 // *************************
 const cron = require("node-cron");
+const { UserModel } = require("./Backend/models/user.model");
 async function deleteAppointments() {
   try {
     // Delete appointments that match the condition (e.g., all appointments before the current date)
