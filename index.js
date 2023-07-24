@@ -81,7 +81,7 @@ const axios = require('axios'); // If you're using Axios for HTTP requests, othe
 cron.schedule('20 1 * * *', async () => {
   try {
     // Make a DELETE request to the /delete endpoint of your backend
-    const response = await axios.get('http://localhost:3000/delete');
+    const response = await axios.get('https://petbuddy-main-server.onrender.com/delete');
 
     // Handle the response, if needed
     console.log('Delete request success:', response.data);
