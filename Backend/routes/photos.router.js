@@ -44,21 +44,44 @@ photoRouter.get('/files/:id', async (req, res) => {
 
 photoRouter.post('/upload', upload.single('file'), async (req, res) => {
     try {
-        const client = new MongoClient(mongo_url);
-        await client.connect();
+               const { uploadID } = req.query;
+        console.log({ uploadID });
+        if (!uploadID) {
+            const client = new MongoClient(mongo_url);
+            await client.connect();
 
-        const db = client.db(dbName);
-        const collection = db.collection('files');
+            const db = client.db(dbName);
+            const collection = db.collection('files');
 
-        const { originalname, buffer, mimetype } = req.file;
+            const { originalname, buffer, mimetype } = req.file;
 
-        // Insert the file as binary data into the MongoDB collection
-        const result = await collection.insertOne({ originalname, data: buffer, mimetype });
-        let id = result.insertedId;
-        // console.log(id)
-        await client.close();
-        // console.log(`http://localhost:3000/photos/files/${id}`)
-        res.json({ link: `https://petbuddy-main-server.onrender.com/photos/files/${result.insertedId}` });
+            // Insert the file as binary data into the MongoDB collection
+            const result = await collection.insertOne({ originalname, data: buffer, mimetype });
+            let id = result.insertedId;
+            // console.log(id)
+            await client.close();
+            // console.log(`http://localhost:3000/photos/files/${id}`)
+            res.json({ link: `https://petbuddy-main-server.onrender.com/photos/files/${result.insertedId}` });
+        } else {
+            const client = new MongoClient(mongo_url);
+            await client.connect();
+
+            const db = client.db(dbName);
+            const collection = db.collection('files');
+
+            const { originalname, buffer, mimetype } = req.file;
+
+            // Insert the file as binary data into the MongoDB collection
+            const result = await collection.updateOne({ _id: new ObjectId(uploadID) }, { $set: { originalname, data: buffer, mimetype } });
+            if (result.modifiedCount === 1) {
+                // console.log({ url: `http://localhost:3000/photos/files/${uploadID}` });
+                res.json({ link: `https://petbuddy-main-server.onrender.com/photos/files/${uploadID}` });
+            } else {
+                console.log('Document not found or no changes made.');
+                res.status(404).json({ error: 'Document not found or no changes made.' });
+            }
+            await client.close();
+        }
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'An error occurred during file upload.' });
