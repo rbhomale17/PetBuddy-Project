@@ -1,7 +1,12 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
 var baseUrl = `https://petbuddy-main-server.onrender.com`
+
+
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
+  let image1 = document.querySelector("#imageDiv>img").src.split("/")
+  let uploadID = image1[image1.length - 1];
+  console.log(uploadID);
 
   const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
@@ -13,7 +18,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
   formData.append('file', file);
   // console.log(formData);
 
-  fetch(`${baseUrl}/photos/upload`, {
+  fetch(`${baseUrl}/photos/upload?uploadID=${uploadID}`, {
     method: 'POST',
     body: formData
   })
@@ -27,6 +32,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
         userID: userDetails._id,
         picture: data.link
       }
+      console.log(obj);
       fetch(`${baseUrl}/users/update`, {
         method: "PATCH",
         headers: {
@@ -45,7 +51,8 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
       image.setAttribute('src', userDetails.picture);
       image.setAttribute('alt', userDetails.name);
       imageDiv.append(image);
-      // document.getElementById('fileInput') = null
+      location.reload()
+  //     // document.getElementById('fileInput') = null
     })
     .catch(error => {
       console.error('An error occurred during file upload:', error);

@@ -1,19 +1,79 @@
 let userDetails = JSON.parse(localStorage.getItem('userDetails')) || {};
 const baseUrl = "https://petbuddy-main-server.onrender.com"
+// document.getElementById('uploadButton').addEventListener('click', (e) => {
+//   e.preventDefault();
+
+//   const fileInput = document.getElementById('fileInput');
+//   const file = fileInput.files[0];
+//   // console.log(file)
+//   if (!file) {
+//     return;
+//   }
+//   const formData = new FormData();
+//   formData.append('file', file);
+//   // console.log(formData);
+
+//   fetch('https://petbuddy-main-server.onrender.com/photos/upload', {
+//     method: 'POST',
+//     body: formData
+//   })
+//     .then(response => response.json())
+//     .then(data => {
+//       console.log('File uploaded successfully. Accessible link:', data.link);
+//       console.log(userDetails);
+//       console.log(userDetails.picture);
+//       userDetails.picture = data.link;
+//       let obj = {
+//         userID: userDetails._id,
+//         picture: data.link
+//       }
+//       fetch(`${baseUrl}/users/update`, {
+//         method: "PATCH",
+//         headers: {
+//           "content-type": "application/json"
+//         },
+//         body: JSON.stringify(obj)
+//       }).then((res) => res.json()).then((res) => {
+//         alert(res.msg)
+//         // fetchData()
+//       })
+//       localStorage.setItem('userDetails', JSON.stringify(userDetails));
+//       let imageDiv = document.getElementById('imageDiv');
+
+//       imageDiv.innerHTML = null;
+//       let image = document.createElement('img');
+//       image.setAttribute('src', userDetails.picture);
+//       image.setAttribute('alt', userDetails.name);
+//       imageDiv.append(image);
+//       document.getElementById('fileInput') = null
+//     })
+//     .catch(error => {
+//       console.error('An error occurred during file upload:', error);
+//     });
+// });
+
+
+
 document.getElementById('uploadButton').addEventListener('click', (e) => {
   e.preventDefault();
-
+  let image1 = document.querySelector("#imageDiv>img").src.split("/")
+  // console.log(image1[2].includes('meeteasy'));
+  // retrun
+if(image1[2].includes('meeteasy')){
+  
+  // let uploadID = image1[image1.length - 1];
+  // console.log(uploadID);
   const fileInput = document.getElementById('fileInput');
   const file = fileInput.files[0];
   // console.log(file)
   if (!file) {
-    return;
+    return; 
   }
   const formData = new FormData();
   formData.append('file', file);
   // console.log(formData);
-
-  fetch('https://petbuddy-main-server.onrender.com/photos/upload', {
+  // console.log(`${baseUrl}/photos/upload`);
+  fetch(`${baseUrl}/photos/upload`, {
     method: 'POST',
     body: formData
   })
@@ -27,6 +87,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
         userID: userDetails._id,
         picture: data.link
       }
+      console.log(obj);
       fetch(`${baseUrl}/users/update`, {
         method: "PATCH",
         headers: {
@@ -35,7 +96,7 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
         body: JSON.stringify(obj)
       }).then((res) => res.json()).then((res) => {
         alert(res.msg)
-        // fetchData()
+        //     // fetchData()
       })
       localStorage.setItem('userDetails', JSON.stringify(userDetails));
       let imageDiv = document.getElementById('imageDiv');
@@ -44,13 +105,74 @@ document.getElementById('uploadButton').addEventListener('click', (e) => {
       let image = document.createElement('img');
       image.setAttribute('src', userDetails.picture);
       image.setAttribute('alt', userDetails.name);
+      console.log(image);
       imageDiv.append(image);
-      document.getElementById('fileInput') = null
+      console.log(imageDiv);
+      location.reload()
+      //   // document.getElementById('fileInput') = null
     })
+
     .catch(error => {
       console.error('An error occurred during file upload:', error);
     });
-});
+}else{
+  let image1 = document.querySelector("#imageDiv>img").src.split("/")
+  let uploadID = image1[image1.length - 1];
+  console.log(uploadID);
+  const fileInput = document.getElementById('fileInput');
+  const file = fileInput.files[0];
+  // console.log(file)
+  if (!file) {
+    return; 
+  }
+  const formData = new FormData();
+  formData.append('file', file);
+  // console.log(formData);
+  console.log(`${baseUrl}/photos/upload?uploadID=${uploadID}`);
+  fetch(`${baseUrl}/photos/upload?uploadID=${uploadID}`, {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('File uploaded successfully. Accessible link:', data.link);
+      console.log(userDetails);
+      console.log(userDetails.picture);
+      userDetails.picture = data.link;
+      let obj = {
+        userID: userDetails._id,
+        picture: data.link
+      }
+      console.log(obj);
+      fetch(`${baseUrl}/users/update`, {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json"
+        },
+        body: JSON.stringify(obj)
+      }).then((res) => res.json()).then((res) => {
+        alert(res.msg)
+        //     // fetchData()
+      })
+      localStorage.setItem('userDetails', JSON.stringify(userDetails));
+      let imageDiv = document.getElementById('imageDiv');
+
+      imageDiv.innerHTML = null;
+      let image = document.createElement('img');
+      image.setAttribute('src', userDetails.picture);
+      image.setAttribute('alt', userDetails.name);
+      console.log(image);
+      imageDiv.append(image);
+      console.log(imageDiv);
+      location.reload()
+      //   // document.getElementById('fileInput') = null
+    })
+
+    .catch(error => {
+      console.error('An error occurred during file upload:', error);
+    });
+}
+})
 
 let header = document.querySelector("header");
 let menu = document.querySelector("#menu-icon");

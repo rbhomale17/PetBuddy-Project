@@ -26,18 +26,24 @@ if (userDetails.role == "Doctor") {
 let timeArray = [10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 let timeButtonsContainer = document.getElementById("slot_btn")
 timeArray.forEach(time => {
-  const todayDate = new Date().toISOString().substring(0, 10)
+  // const todayDate = new Date().toISOString().substring(0, 10);
+  const today = new Date();
+const options = { timeZone: 'Asia/Kolkata', year: 'numeric', month: '2-digit', day: '2-digit' };
+const [day, month, year] = today.toLocaleDateString('en-IN', options).split('/');
+const localDate = `${year}-${month}-${day}`;
+console.log(localDate);
   const button = document.createElement("button");
   button.classList = "slot_buttons"
-  button.innerText = `${todayDate}, Time: ${time}:00`;
+  button.innerText = `${localDate}, Time: ${time}:00`;
 
-  let formatedTime = `${todayDate}T${time}:00:00.000Z`
+  // console.log(todayDate);
+  let formatedTime = `${localDate}T${time}:00:00.000Z`
 
   // Add a click event listener to the button
   button.addEventListener("click", async () => {
     console.log(formatedTime)
     button.style = 'background-color:rgba(218, 16, 16, 0.574); color:white'
-    createSlots(formatedTime, userDetails._id)
+    createSlots(formatedTime, '64be27070f38d2dbffb10db7')
   });
 
   // Append the button to the container

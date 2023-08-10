@@ -42,20 +42,6 @@ async function deleteAppointments() {
     console.error('Error deleting appointments:', err);
   }
 }
-// const cron = require("node-cron");
-// const { UserModel } = require("./Backend/models/user.model");
-
-// async function deleteAppointments() {
-//   try {
-//     // Delete appointments that match the condition (e.g., all appointments before the current date)
-//     const currentDate = new Date();
-//     await appointmentModel.deleteMany({ meeting_time: { $lt: currentDate } });
-//     await UserModel.updateMany({}, { $set: { appointments: [] } });
-//     console.log('Appointments deleted successfully.');
-//   } catch (err) {
-//     console.error('Error deleting appointments:', err);
-//   }
-// }
 
 // Convert the cron schedule from India time to Singapore time
 const singaporeCronSchedule = "30 2 * * *"; // 2:30 AM in Singapore timezone
